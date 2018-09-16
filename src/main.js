@@ -10,6 +10,7 @@ import MintUI from 'mint-ui';
 import 'lib-flexible';
 import 'whatwg-fetch';
 import './styles/mint.css'
+import './styles/fonts/style.css'
 
 Vue.use(MintUI);
 Vue.use(VueScroller)
