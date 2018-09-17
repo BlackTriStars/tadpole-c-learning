@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import BocHeader from '@/components/common/header.vue'
-import BocFooter from '@/components/common/footerNav.vue'
+import BocHeader from "@/components/common/header.vue";
+import BocFooter from "@/components/common/footerNav.vue";
 export default {
-  data(){
-    return{}
+  data() {
+    return {};
   },
-  props:{
-    header:{
+  props: {
+    header: {
       type: Boolean,
       default: true
     },
@@ -25,14 +25,21 @@ export default {
       default: true
     }
   },
-  components:{
-    BocHeader,BocFooter
+  components: {
+    BocHeader,
+    BocFooter
   },
-  updated(){
-    document.querySelector('.appContent').scrollTop = 0;
+  updated() {
+    document.querySelector(".appContent").scrollTop = 0;
   }
-}
+};
 </script>
 
 <style lang="less">
+.paddingBottom {
+  padding-bottom: 1.306667rem;
+}
+.paddingTop {
+  padding-top: 1.173333rem;
+}
 </style>
