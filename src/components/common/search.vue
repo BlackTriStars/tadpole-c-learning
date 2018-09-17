@@ -1,9 +1,13 @@
 <template>
   <div class="search">
-    <div class="sm"></div>
+    <div class="sm">
+      <img src="../../assets/common/scanning.png" alt="" srcset="">
+    </div>
     <i class="icon-search"></i>
     <input type="search" @search="search" v-model="searchTxt" placeholder="搜索您感兴趣的课程">
-    <div class="email"></div>
+    <div class="email">
+       <img src="../../assets/common/email.png" alt="" srcset="">
+    </div>
   </div>
 </template>
 

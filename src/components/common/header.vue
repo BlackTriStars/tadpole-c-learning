@@ -40,7 +40,7 @@ export default {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: .48rem;
+    left: 0.48rem;
   }
 }
 </style>
