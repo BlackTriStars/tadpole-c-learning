@@ -3,7 +3,7 @@
     <i>
       <img src="../../assets/common/back.png" alt="" srcset="" @click="$router.go(-1)">
     </i>
-    {{header.title}}
+    {{title}}
   </div>
 </template>
 
@@ -12,12 +12,21 @@ import { mapState } from "vuex";
 
 export default {
   data() {
-    return {};
+    return {
+      title: ''
+    }
   },
-  computed: {
-    ...mapState(["header"])
-  },
-  methods: {}
+  methods: {},
+  watch: {
+    $route: {
+      immediate: true,
+      deep: true,
+      handler(nv){
+        let { title } = nv.meta
+        this.title = this.$route.meta.title
+      }
+    }
+  }
 };
 </script>
 

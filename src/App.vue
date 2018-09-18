@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <defaultLayout :header="headerShow" :footer="footerShow">
+    <defaultLayout :header="headerShowList" :footer="footerShowList">
       <router-view></router-view>
     </defaultLayout>
   </div>
@@ -13,35 +13,24 @@ export default {
   name: "App",
   data() {
     return {
-      headerShow: false,
-      footerShow: false
+      headerShowList: {
+        exclude: ['index']
+      },
+      footerShowList: {
+        include: [ 'index' ]
+      },
     };
   },
   components: {
     defaultLayout
   },
   mounted() {
-    this.checkoutPath(this.$route.name);
+
   },
   methods: {
-    ...mapMutations(["changeHeader"]),
-    checkoutPath(name) {
-      if (name === "index") {
-        this.headerShow = false;
-        this.footerShow = true;
-      } else {
-        this.headerShow = true;
-        this.footerShow = true;
-      }
-      console.log(name);
-      switch (name) {
-        case "saomiao":
-          this.changeHeader({ title: "扫描二维码" });
-          break;
-        default:
-          break;
-      }
-    }
+  },
+  watch: {
+
   }
 };
 </script>
