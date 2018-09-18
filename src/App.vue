@@ -17,7 +17,7 @@ export default {
         exclude: ['index', 'login']
       },
       footerShowList: {
-        include: [ 'index' ]
+        include: [ 'index', 'my' ]
       },
     };
   },

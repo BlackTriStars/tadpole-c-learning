@@ -1,9 +1,11 @@
 <template>
   <div class="title">
-    <i>
-      <img src="../../assets/common/back.png" alt="" srcset="" @click="$router.go(-1)">
+    <i class="icon-left" @click="$router.go(-1)">
     </i>
-    {{title}}
+    <h1>
+      {{title}}
+    </h1>
+    <div class="right"><slot></slot></div>
   </div>
 </template>
 
@@ -35,21 +37,29 @@ export default {
 .title {
   width: 100%;
   height: 1.173333rem;
-  font-size: 0.48rem;
-  font-family: PingFangSC-Medium;
-  font-weight: bold;
   color: rgba(34, 34, 34, 1);
   z-index: 999;
-  text-align: center;
   position: fixed;
   top: 0;
   left: 0;
-  line-height: 1.173333rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   i {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0.48rem;
+    font-size: 36px;
+    width: 100px;
+    margin-right: auto;
+    transform: translateX(-20px);
+  }
+  h1{
+    font-weight: bold;
+    font-family: PingFangSC-Medium;
+    font-size: 36px;
+  }
+  .right{
+    width: 100px;
+    margin-left: auto;
+    font-size: 36px;
   }
 }
 </style>

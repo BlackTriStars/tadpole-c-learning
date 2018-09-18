@@ -74,5 +74,13 @@ export default new Router({
 
       ]
     },
+    {
+      path: '/my',
+      name: 'my',
+      meta: {
+        title: '我的'
+      },
+      component: my
+    }
   ]
 })
