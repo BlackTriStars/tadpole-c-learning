@@ -1,5 +1,9 @@
 <template>
   <div class="loginRegister">
+    <div class="topTool" v-show="$route.name === 'login'">
+      <i class="icon-close"></i>
+      <span>注册</span>
+    </div>
     <hello :type="loginType"></hello>
     <router-view></router-view>
   </div>
@@ -54,6 +58,35 @@ export default {
 </script>
 <style lang='less' rel='stylesheet/less'>
   .loginRegister{
-    padding: 0 36px;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    padding: 188px 60px 0;
+    .topTool{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120px;
+      display: flex;
+      padding: 0 36px;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 34px;
+      color: #333;
+    }
+    input {
+      width: 100%;
+      height: 96px;
+      background: #fff;
+      line-height: 96px;
+      font-size: 32px;
+      border: none;
+      border-bottom: 1px solid #D3DFEF; /*no*/
+      &::-webkit-input-placeholder, &:-moz-placeholder, &::-moz-placeholder, &:-ms-input-placeholder {
+        color:#BFBFBF;
+      }
+    }
   }
 </style>

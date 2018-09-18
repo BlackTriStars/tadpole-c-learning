@@ -37,7 +37,7 @@ export default {
   height: 1.173333rem;
   font-size: 0.48rem;
   font-family: PingFangSC-Medium;
-  font-weight: 500;
+  font-weight: bold;
   color: rgba(34, 34, 34, 1);
   z-index: 999;
   text-align: center;

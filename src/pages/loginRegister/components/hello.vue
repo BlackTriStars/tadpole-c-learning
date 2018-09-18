@@ -49,6 +49,7 @@ export default {
 
 <style lang="less">
 .hello{
+  margin-bottom: 60px;
   &>h4{
     font-size: 48px;
     color: #333;
