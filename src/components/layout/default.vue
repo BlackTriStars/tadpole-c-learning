@@ -1,6 +1,6 @@
 @<template>
   <div class="container" :class="{paddingTop:headerShow,paddingBottom:footerShow}">
-    <BocHeader v-show="headerShow"></BocHeader>
+    <BocHeader v-show="headerShow">{{$route.meta.btn?$route.meta.btn : ''}}</BocHeader>
     <div class="appContent">
       <slot></slot>
     </div>
@@ -98,10 +98,14 @@ export default {
 </script>
 
 <style lang="less">
+.container, .appContent{
+  height: 100%;
+}
 .paddingBottom {
   padding-bottom: 1.306667rem;
 }
 .paddingTop {
   padding-top: 1.173333rem;
 }
+
 </style>

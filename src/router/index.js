@@ -3,15 +3,16 @@ import Router from 'vue-router'
 import index from '@/pages/index'
 import saomiao from '@/pages/saomiao'
 
-
+//  注册登录
 import loginMain from '@/pages/loginRegister/index'
 import firstLogin from '@/pages/loginRegister/firstLogin'
 import login from '@/pages/loginRegister/login'
 import resetPassword from '@/pages/loginRegister/resetPassword'
 import changePassword from '@/pages/loginRegister/changePassword'
 
-
+//  我的
 import my from '@/pages/my/index'
+import userInfo from '@/pages/my/userInfo'
 
 
 //online
@@ -81,7 +82,8 @@ export default new Router({
       path: '/my',
       name: 'my',
       meta: {
-        title: '我的'
+        title: '我的',
+        btn: '注销'
       },
       component: my
     },
@@ -92,6 +94,15 @@ export default new Router({
         title: '在线'
       },
       component: onlineList
+    },
+    {
+      path: '/userInfo',
+      name: 'userInfo',
+      meta: {
+        title: '个人信息',
+        btn: '保存'
+      },
+      component: userInfo
     }
   ]
 })
