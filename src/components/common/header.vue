@@ -5,7 +5,7 @@
     <h1>
       {{title}}
     </h1>
-    <div class="right"><slot></slot></div>
+    <div class="rightBtn" @click="handleClick"><slot></slot></div>
   </div>
 </template>
 
@@ -18,7 +18,11 @@ export default {
       title: ''
     }
   },
-  methods: {},
+  methods: {
+    handleClick(){
+      this.$root.$emit('handleClick')
+    }
+  },
   watch: {
     $route: {
       immediate: true,
@@ -35,6 +39,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
 .title {
+  background: #fff;
   width: 100%;
   height: 1.173333rem;
   color: rgba(34, 34, 34, 1);
@@ -56,10 +61,13 @@ export default {
     font-family: PingFangSC-Medium;
     font-size: 36px;
   }
-  .right{
+  .rightBtn{
     width: 100px;
     margin-left: auto;
-    font-size: 36px;
+    font-size: 32px;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(34,34,34,1);
   }
 }
 </style>

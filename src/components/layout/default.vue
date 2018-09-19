@@ -1,6 +1,6 @@
 @<template>
   <div class="container" :class="{paddingTop:headerShow,paddingBottom:footerShow}">
-    <BocHeader v-show="headerShow"></BocHeader>
+    <BocHeader v-show="headerShow">{{$route.meta.btn?$route.meta.btn : ''}}</BocHeader>
     <div class="appContent">
       <slot></slot>
     </div>
