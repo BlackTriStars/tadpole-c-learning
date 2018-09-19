@@ -14,6 +14,9 @@ import changePassword from '@/pages/loginRegister/changePassword'
 import my from '@/pages/my/index'
 
 
+//online
+import onlineList from '@/pages/online/list'
+
 Vue.use(Router)
 
 export default new Router({
@@ -38,7 +41,7 @@ export default new Router({
       path: '/login&register',
       redirect: '/login',
       component: loginMain,
-      children:[
+      children: [
         {
           path: '/firstLogin',
           name: 'firstLogin',
@@ -81,6 +84,14 @@ export default new Router({
         title: '我的'
       },
       component: my
+    },
+    {
+      path: '/online',
+      name: 'online',
+      meta: {
+        title: '在线'
+      },
+      component: onlineList
     }
   ]
 })

@@ -14,10 +14,10 @@ export default {
   data() {
     return {
       headerShowList: {
-        exclude: ['index', 'login']
+        exclude: ['index', 'login', 'online']
       },
       footerShowList: {
-        include: [ 'index', 'my' ]
+        include: [ 'index', 'my', 'online' ]
       },
     };
   },
