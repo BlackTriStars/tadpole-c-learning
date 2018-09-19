@@ -96,6 +96,8 @@ export default {
     
   },
   mounted() {
+    //   这里处理右上角点击事件
+    this.$root.$off('handleClick')
     this.$root.$on('handleClick', ()=>{
       console.log('这里是my')
     })
@@ -108,6 +110,7 @@ export default {
 <style lang='less' rel='stylesheet/less'>
   .my{
     background:rgb(243,247,255);
+    min-width: 100vh;
     .userInfoWrap{
       height: 284px;
       width: 100%;

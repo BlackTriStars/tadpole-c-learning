@@ -98,10 +98,14 @@ export default {
 </script>
 
 <style lang="less">
+.container, .appContent{
+  height: 100%;
+}
 .paddingBottom {
   padding-bottom: 1.306667rem;
 }
 .paddingTop {
   padding-top: 1.173333rem;
 }
+
 </style>
