@@ -1,95 +1,95 @@
 <template>
   <footer>
-   <ul>
-       <li v-for="(item, index) in list" :key="index" :class="{active: currentIndex === index}" @click="changeCurrentActive(index)">
+    <ul>
+      <li v-for="(item, index) in list" :key="index" :class="{active: currentIndex === index}" @click="changeCurrentActive(index)">
         <img :src="currentIndex === index?item.url1:item.url" alt="">
         <span>{{item.content}}</span>
       </li>
     </ul>
-  </footer>  
+  </footer>
 </template>
 
 <script>
 export default {
-  data(){
-    return{
-      list:[
+  data() {
+    return {
+      list: [
         {
-          content:'首页',
-          url:require("../../assets/common/home.png"),
-          url1:require("../../assets/common/homeA.png")
+          content: "首页",
+          url: require("../../assets/common/home.png"),
+          url1: require("../../assets/common/homeA.png")
         },
         {
-          content:'在线',
-          url:require("../../assets/common/online.png"),
-          url1:require("../../assets/common/onlineA.png")
+          content: "在线",
+          url: require("../../assets/common/online.png"),
+          url1: require("../../assets/common/onlineA.png")
         },
         {
-          content:'面授',
-          url:require("../../assets/common/task.png"),
-          url1:require("../../assets/common/taskA.png")
+          content: "面授",
+          url: require("../../assets/common/task.png"),
+          url1: require("../../assets/common/taskA.png")
         },
         {
-          content:'直播',
-          url:require("../../assets/common/zhibo.png"),
-          url1:require("../../assets/common/zhiboA.png")
+          content: "直播",
+          url: require("../../assets/common/zhibo.png"),
+          url1: require("../../assets/common/zhiboA.png")
         },
         {
-          content:'我的',
-          url:require("../../assets/common/my.png"),
-          url1:require("../../assets/common/myA.png")
-        },
+          content: "我的",
+          url: require("../../assets/common/my.png"),
+          url1: require("../../assets/common/myA.png")
+        }
       ],
       currentIndex: 0
-    }
+    };
   },
-  methods:{
-    changeCurrentActive(index){
+  methods: {
+    changeCurrentActive(index) {
       let url;
       switch (index) {
         case 0:
-          url='index'
+          url = "index";
           break;
         case 1:
-          url='online'
+          url = "online";
           break;
         case 2:
-          url='task'
+          url = "task";
           break;
-          case 3:
-          url='zhibo'
+        case 3:
+          url = "zhibo";
           break;
-          case 4:
-          url='my'
+        case 4:
+          url = "my";
           break;
-      
+
         default:
           break;
       }
-      this.$router.push({ name: url})
+      this.$router.push({ name: url });
       this.currentIndex = index;
     }
   },
-  watch:{
-       $route(v){
-      if(v.name === 'index'){ 
+  watch: {
+    $route(v) {
+      if (v.name === "index") {
         this.currentIndex = 0;
       }
-      if(v.name === 'online'){ 
+      if (v.name === "online") {
         this.currentIndex = 1;
       }
-      if(v.name === 'task'){
-        this.currentIndex = 2;        
+      if (v.name === "task") {
+        this.currentIndex = 2;
       }
-      if(v.name === 'zhibo'){
-        this.currentIndex = 3;        
+      if (v.name === "zhibo") {
+        this.currentIndex = 3;
       }
-      if(v.name === 'my'){
-        this.currentIndex = 4;        
+      if (v.name === "my") {
+        this.currentIndex = 4;
       }
     }
   }
-}
+};
 </script>
 
 <style lang="less">
@@ -100,6 +100,7 @@ footer {
   width: 100%;
   height: 1.30666667rem;
   background-color: #fff;
+  box-shadow: 0px -4px 12px 0px rgba(0, 0, 0, 0.04);
   ul {
     display: flex;
     justify-content: space-between;

@@ -98,9 +98,9 @@ export default {
 </script>
 
 <style lang="less">
-.container, .appContent{
-  height: 100%;
-}
+// .container, .appContent{
+//   height: 100%;
+// }
 .paddingBottom {
   padding-bottom: 1.306667rem;
 }
