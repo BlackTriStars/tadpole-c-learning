@@ -13,6 +13,7 @@ import changePassword from '@/pages/loginRegister/changePassword'
 //  我的
 import my from '@/pages/my/index'
 import userInfo from '@/pages/my/userInfo'
+import task from '@/pages/my/task'
 
 
 Vue.use(Router)
@@ -92,6 +93,14 @@ export default new Router({
         btn: '保存'
       },
       component: userInfo
+    },
+    {
+      path: '/task',
+      name: 'task',
+      meta: {
+        title: '我的任务',
+      },
+      component: task
     }
   ]
 })
