@@ -35,6 +35,7 @@ export default {
   width: 100%;
   display: flex;
   align-items: center;
+  margin: 15px 0;
   img {
     width: 0.533333rem;
     height: 0.48rem;
