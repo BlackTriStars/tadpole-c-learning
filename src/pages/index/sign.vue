@@ -8,6 +8,13 @@
           <span>{{v.content}}</span>
         </div>
       </div>
+      <button :disabled="disabled" @click="qiandao" :class="{active:disabled}">
+        {{content}}
+      </button>
+    </div>
+    <div class="line"></div>
+    <div class="bottom">
+
     </div>
   </div>
 
@@ -18,6 +25,7 @@ export default {
   name: "",
   data() {
     return {
+      content: "立即签到",
       emjList: [
         {
           content: "开心",
@@ -60,7 +68,11 @@ export default {
           url: require("../../assets/index/n.png")
         }
       ],
-      selected: "0"
+      selected: "",
+      disabled: false,
+      signList:[
+        
+      ]
     };
   },
   created() {
@@ -69,6 +81,10 @@ export default {
   methods: {
     sign: function(i) {
       this.selected = i;
+    },
+    qiandao: function() {
+      this.disabled = true;
+      this.content = "今日已签到";
     }
   }
 };
@@ -96,7 +112,7 @@ export default {
       display: flex;
       flex-wrap: wrap;
       width: 680px;
-      margin: 0 auto;
+      margin: 0 auto 36px;
       justify-content: space-between;
 
       .emj {
@@ -133,6 +149,31 @@ export default {
         border: 2px solid rgba(225, 204, 161, 1);
       }
     }
+    button {
+      width: 420px;
+      height: 88px;
+      margin: 0 auto;
+      background: rgba(225, 204, 161, 1);
+      border-radius: 44px;
+      box-shadow: none;
+      border: none;
+      font-size: 36px;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      line-height: 50px;
+    }
+    .active {
+      background: rgba(225, 204, 161, 1);
+      opacity: 0.5;
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+  .line {
+    height: 20px;
+    background: rgba(243, 247, 255, 1);
+  }
+  .bottom {
   }
 }
 </style>
