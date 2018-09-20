@@ -1,12 +1,14 @@
 @<template>
-  <div class="tabPane" v-if="active"><slot></slot></div>
+  <div class="tabPane" v-if="active" :id="`pane-${index}`"><slot></slot></div>
 </template>
 
 <script>
 export default {
   name: 'tabPane',
   data(){
-    return {}
+    return {
+      index: null,
+    }
   },
   props: {
     name: String,
@@ -14,7 +16,7 @@ export default {
   },
   computed: {
     active() {
-      const active = this.$parent.currentName === this.name;
+      const active = this.$parent.currentName === this.name || this.$parent.currentName === this.index;
       return active;
     },
   },
@@ -26,6 +28,13 @@ export default {
       this.$el.parentNode.removeChild(this.$el);
     }
     this.$parent.removePanes(this);
+  },
+  watch: {
+    label:{
+      handler(){
+        // this.$parent.$forceUpdate();
+      }
+    }
   }
 }
 </script>

@@ -11,6 +11,7 @@ import 'lib-flexible';
 import 'whatwg-fetch';
 import './styles/mint.css'
 import './styles/fonts/style.css'
+import './styles/components.css'
 
 
 Vue.use(MintUI);

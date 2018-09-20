@@ -3,14 +3,11 @@ import myNav from "./nav";
 export default {
   data(){
     return {
-       currentName: '',
+       currentName: '0',
        panes: []
     }
   },
   components: {myNav},
-  mounted(){
-    // this.pane = this.$slots.default
-  },
   props: {
 
   },
@@ -28,11 +25,12 @@ export default {
     }
   },
   render(){
-    let {currentName , pane} = this
+    let {currentName , panes, activeLine} = this
     const navData = {
-      props: {currentName,pane},
+      props: {currentName,panes},
       ref: 'nav'
     }
+    const navBarList = [] 
     const header = (
       <div class="navWrap">
         <myNav {...navData}></myNav>
@@ -45,15 +43,17 @@ export default {
       </div>
     )
     return (
-      <div class="myTab">
+      <div class="myTab" ref="tabs">
         {header}
         {panels}
       </div>
     )
+  },
+  watch: {
+    currentName(nv){
+      this.$emit('afterChange', nv)
+    }
   }
 }
 </script>
 
-<style>
-
-</style>

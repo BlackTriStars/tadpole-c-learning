@@ -14,6 +14,12 @@ import changePassword from '@/pages/loginRegister/changePassword'
 import my from '@/pages/my/index'
 import userInfo from '@/pages/my/userInfo'
 import task from '@/pages/my/task'
+import exam from '@/pages/my/exam'
+import studyRecord from '@/pages/my/studyRecord'
+import collect from '@/pages/my/collect'
+import download from '@/pages/my/download'
+import about from '@/pages/my/about'
+import approving from '@/pages/my/approving'
 
 
 //online
@@ -112,6 +118,54 @@ export default new Router({
         title: '我的任务',
       },
       component: task
+    },
+    {
+      path: '/exam',
+      name: 'exam',
+      meta: {
+        title: '我的考试',
+      },
+      component: exam
+    },
+    {
+      path: '/studyRecord',
+      name: 'studyRecord',
+      meta: {
+        title: '学习记录',
+      },
+      component: studyRecord
+    },
+    {
+      path: '/collect',
+      name: 'collect',
+      meta: {
+        title: '我的收藏',
+      },
+      component: collect
+    },
+    {
+      path: '/download',
+      name: 'download',
+      meta: {
+        title: '我的下载',
+      },
+      component: download
+    },
+    {
+      path: '/about',
+      name: 'about',
+      meta: {
+        title: '关于',
+      },
+      component: about
+    },
+    {
+      path: '/approving',
+      name: 'approving',
+      meta: {
+        title: '我的审批',
+      },
+      component: approving
     }
   ]
 })
