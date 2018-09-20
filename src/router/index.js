@@ -1,7 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import index from '@/pages/index'
-import saomiao from '@/pages/saomiao'
+
+
+// 主页
+import index from "@/pages/index";
+import saomiao from "@/pages/index/saomiao"; //扫描二维码
+import sign from "@/pages/index/sign"; //每日签到
 
 //  注册登录
 import loginMain from '@/pages/loginRegister/index'
@@ -31,8 +35,7 @@ import lesson from '@/pages/lesson/lesson'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'index',
       meta: {
@@ -49,11 +52,18 @@ export default new Router({
       component: saomiao
     },
     {
+      path: "/sign",
+      name: "sign",
+      meta: {
+        title: "每日签到"
+      },
+      component: sign
+    },
+    {
       path: '/login&register',
       redirect: '/login',
       component: loginMain,
-      children: [
-        {
+      children: [{
           path: '/firstLogin',
           name: 'firstLogin',
           meta: {
