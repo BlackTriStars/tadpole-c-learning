@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       headerShowList: {
-        exclude: ['index', 'login', 'online']
+        exclude: ['index', 'login', 'online', 'lesson']
       },
       footerShowList: {
         include: [ 'index', 'my', 'online' ]

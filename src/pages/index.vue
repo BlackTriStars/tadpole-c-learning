@@ -47,7 +47,7 @@
         <img src="../assets/common/right.png" alt="">
       </div>
       <div class="main">
-        <div class="item" v-for="(item, index) in task" :key="index">
+        <div class="item" v-for="(item, index) in task.taskList" :key="index">
           <img :src="item.imgurl" alt="">
           <div class="line">
             {{item.num}}人已报名
@@ -55,8 +55,8 @@
           <div class="neirong">
             {{item.content}}
           </div>
-          <div class="time">
-            {{item.time}}
+          <div class="date">
+            {{item.date}}
           </div>
         </div>
       </div>
@@ -69,16 +69,67 @@
         <img src="../assets/common/right.png" alt="">
       </div>
       <div class="main">
-        <div class="item" v-for="(item, index) in lesson" :key="index">
+        <div class="item" v-for="(item, index) in lesson.lessonList" :key="index">
           <img :src="item.imgurl" alt="">
-          <div class="line">
+          <div class="line" v-if="item.num">
             {{item.num}}人已报名
           </div>
           <div class="neirong">
             {{item.content}}
           </div>
-          <div class="time">
-            {{item.time}}
+          <div class="date">
+            {{item.date}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 考试 -->
+    <div class="test">
+      <div class="theme">
+        <span>考试</span>
+        <img src="../assets/common/right.png" alt="">
+      </div>
+      <div class="main">
+        <div class="item" v-for="(item, index) in test.testList" :key="index">
+          <div class="top">
+            <div class="neirong">
+              {{item.content}}
+            </div>
+            <div class="num">
+              共{{item.num}}道题
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="date">
+              {{item.date}}
+            </div>
+            <div class="time">
+              作答时间： {{item.time}}分钟
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 资讯 -->
+    <div class="lesson">
+      <div class="theme">
+        <span>资讯</span>
+        <img src="../assets/common/right.png" alt="">
+      </div>
+      <div class="main">
+        <div class="item" v-for="(item, index) in zixun.zixunList" :key="index">
+          <img :src="item.imgurl" alt="">
+          <div class="line" v-if="item.num">
+            {{item.num}}人已报名
+          </div>
+          <div class="neirong">
+            {{item.content}}
+          </div>
+          <div class="date">
+            {{item.date}}
           </div>
         </div>
       </div>
@@ -86,20 +137,39 @@
 
 
 
-    <!-- 考试 -->
-    <div class="test">
-       <div class="theme">
-        <span>考试</span>
+    <!-- 任务 -->
+    <div class="lesson" style="margin-bottom:20px">
+      <div class="theme">
+        <span>任务</span>
         <img src="../assets/common/right.png" alt="">
       </div>
       <div class="main">
-        <div class="item"></div>
+        <div class="item" v-for="(item, index) in job.jobList" :key="index">
+          <img :src="item.imgurl" alt="">
+          <div class="line" v-if="item.num">
+            {{item.num}}人已报名
+          </div>
+          <div class="neirong">
+            {{item.content}}
+          </div>
+          <div class="date">
+            {{item.date}}
+          </div>
+        </div>
       </div>
     </div>
 
   </div>
 
 </template>
+
+
+  </div>
+
+</template>
+
+
+
 
 <script>
 import search from "@/components/common/search.vue";
@@ -116,71 +186,176 @@ export default {
         loop: true,
         autoPlay: true
       },
-      task: [
-        {
-          content: "标准普通话培训第三节",
-          imgurl: require("../assets/index/1.png"),
-          num: "218",
-          url: "", //跳转的地址
-          time: "2018.08.05~06.26"
-        },
-        {
-          content: "标准普通话培训第三节",
-          imgurl: require("../assets/index/1.png"),
-          num: "218",
-          url: "", //跳转的地址
-          time: "2018.08.05~06.26"
-        },
-        {
-          content: "标准普通话培训第三节",
-          imgurl: require("../assets/index/1.png"),
-          num: "218",
-          url: "", //跳转的地址
-          time: "2018.08.05~06.26"
-        },
-        {
-          content: "标准普通话培训第三节",
-          imgurl: require("../assets/index/1.png"),
-          num: "218",
-          url: "", //跳转的地址
-          time: "2018.08.05~06.26"
-        }
-      ],
-      lesson:[
-        {
-          content: "国家建造师24课时培训",
-          imgurl: require("../assets/index/2.png"),
-          num: "218",
-          url: "", //跳转的地址
-          time: "2018.08.05~06.26"
-        },
-        {
-          content: "国家建造师24课时培训",
-          imgurl: require("../assets/index/2.png"),
-          num: "218",
-          url: "", //跳转的地址
-          time: "2018.08.05~06.26"
-        },
-        {
-          content: "国家建造师24课时培训",
-          imgurl: require("../assets/index/2.png"),
-          num: "218",
-          url: "", //跳转的地址
-          time: "2018.08.05~06.26"
-        },
-        {
-          content: "国家建造师24课时培训",
-          imgurl: require("../assets/index/2.png"),
-          num: "218",
-          url: "", //跳转的地址
-          time: "2018.08.05~06.26"
-        }
-      ],
-      test:[
-        {
-          
-        }
-      ]
+      task: {
+        url: "",
+        taskList: [
+          {
+            content: "标准普通话培训第三节",
+            imgurl: require("../assets/index/1.png"),
+            num: "218",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          },
+          {
+            content: "标准普通话培训第三节",
+            imgurl: require("../assets/index/1.png"),
+            num: "218",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          },
+          {
+            content: "标准普通话培训第三节",
+            imgurl: require("../assets/index/1.png"),
+            num: "218",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          },
+          {
+            content: "标准普通话培训第三节",
+            imgurl: require("../assets/index/1.png"),
+            num: "218",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          }
+        ]
+      },
+
+      lesson: {
+        url: "",
+        lessonList: [
+          {
+            content: "国家建造师24课时培训",
+            imgurl: require("../assets/index/2.png"),
+            num: "",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          },
+          {
+            content: "国家建造师24课时培训",
+            imgurl: require("../assets/index/2.png"),
+            num: "",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          },
+          {
+            content: "国家建造师24课时培训",
+            imgurl: require("../assets/index/2.png"),
+            num: "",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          },
+          {
+            content: "国家建造师24课时培训",
+            imgurl: require("../assets/index/2.png"),
+            num: "",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          }
+        ]
+      },
+      test: {
+        url: "",
+        testList: [
+          {
+            content: "中国证券法从业资格",
+            imgurl: require("../assets/index/3.png"),
+            num: "18",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26",
+            time: "20"
+          },
+          {
+            content: "中国证券法从业资格",
+            imgurl: require("../assets/index/3.png"),
+            num: "18",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26",
+            time: "20"
+          },
+          {
+            content: "中国证券法从业资格",
+            imgurl: require("../assets/index/3.png"),
+            num: "18",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26",
+            time: "20"
+          },
+          {
+            content: "中国证券法从业资格",
+            imgurl: require("../assets/index/3.png"),
+            num: "18",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26",
+            time: "20"
+          }
+        ]
+      },
+      zixun: {
+        url: "",
+        zixunList: [
+          {
+            content: "标准普通话培训第三节",
+            imgurl: require("../assets/index/1.png"),
+            num: "218",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          },
+          {
+            content: "标准普通话培训第三节",
+            imgurl: require("../assets/index/1.png"),
+            num: "218",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          },
+          {
+            content: "标准普通话培训第三节",
+            imgurl: require("../assets/index/1.png"),
+            num: "218",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          },
+          {
+            content: "标准普通话培训第三节",
+            imgurl: require("../assets/index/1.png"),
+            num: "218",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          }
+        ]
+      },
+      job: {
+        url: "",
+        jobList: [
+          {
+            content: "国家建造师24课时培训",
+            imgurl: require("../assets/index/2.png"),
+            num: "",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          },
+          {
+            content: "国家建造师24课时培训",
+            imgurl: require("../assets/index/2.png"),
+            num: "",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          },
+          {
+            content: "国家建造师24课时培训",
+            imgurl: require("../assets/index/2.png"),
+            num: "",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          },
+          {
+            content: "国家建造师24课时培训",
+            imgurl: require("../assets/index/2.png"),
+            num: "",
+            url: "", //跳转的地址
+            date: "2018.08.05~06.26"
+          }
+        ]
+      }
     };
   },
   components: {
@@ -244,7 +419,7 @@ export default {
       justify-content: flex-start;
       margin-top: 0.266667rem;
     }
-    .time {
+    .date {
       display: flex;
       align-items: center;
       justify-content: flex-start;
@@ -319,7 +494,8 @@ export default {
 }
 
 // 面授部分
-.task,.lesson,{
+.task,
+.lesson {
   width: 9.04rem;
   margin: 0.906667rem auto 0;
   .main {
@@ -329,16 +505,56 @@ export default {
     .item {
       display: inline-table;
       vertical-align: top;
-      margin-right: .266667rem;
+      margin-right: 0.266667rem;
     }
   }
 }
 
-.test{
+.test {
   width: 9.04rem;
   margin: 0.906667rem auto 0;
-  .main{
-    border-top: 1px solid rgba(255,255,255,1)
+  .main {
+    border-top: 2px solid rgba(241, 241, 241, 1);
+    .item {
+      height: 152px;
+      width: 100%;
+      overflow: hidden;
+      border-bottom: 2px solid rgba(241, 241, 241, 1);
+      .neirong {
+        margin: 0;
+      }
+      .top,
+      .bottom {
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .top {
+        margin-top: 40px;
+        .num {
+          font-size: 28px;
+          font-family: PingFangSC-Medium;
+          font-weight: 500;
+          color: rgba(153, 153, 153, 1);
+          line-height: 40px;
+        }
+      }
+      .bottom {
+        margin-top: 8px;
+        .time {
+          font-size: 24px;
+          font-family: PingFangSC-Regular;
+          font-weight: 400;
+          color: rgba(153, 153, 153, 1);
+          line-height: 34px;
+        }
+      }
+    }
   }
 }
 </style>

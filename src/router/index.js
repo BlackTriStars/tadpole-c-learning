@@ -25,6 +25,9 @@ import approving from '@/pages/my/approving'
 //online
 import onlineList from '@/pages/online/list'
 
+//lesson
+import lesson from '@/pages/lesson/lesson'
+
 Vue.use(Router)
 
 export default new Router({
@@ -101,6 +104,14 @@ export default new Router({
         title: '在线'
       },
       component: onlineList
+    },
+    {
+      path: '/lesson/:id',
+      name: 'lesson',
+      meta: {
+        title: '课程'
+      },
+      component: lesson
     },
     {
       path: '/userInfo',
