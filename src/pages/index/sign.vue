@@ -14,7 +14,14 @@
     </div>
     <div class="line"></div>
     <div class="bottom">
-
+      <p>历史签到</p>
+      <div class="item" v-for="(v,i) in signList" :key='i'>
+        <div class="time" >{{v.time}}已签到</div>
+        <div class="content">
+          <img :src="v.emjUrl" alt="" srcset="">
+          {{v.content}}
+        </div>
+      </div>
     </div>
   </div>
 
@@ -71,13 +78,23 @@ export default {
       selected: "",
       disabled: false,
       signList:[
-        
+        {
+          emjUrl:require("../../assets/index/n.png"),
+          time:"2018-08-05 12:16:23",
+          content:"今天心情很不错"
+        }
       ]
     };
   },
   created() {
     console.log(this.selected, "一开始");
   },
+  computed:{
+    // reverseMessage:function(){
+    //     return this.message.split('').reverse().join('');
+    //   }
+    // 签到页逻辑 https://blog.csdn.net/chanlingmai5374/article/details/82343470
+            }, 
   methods: {
     sign: function(i) {
       this.selected = i;
@@ -174,6 +191,45 @@ export default {
     background: rgba(243, 247, 255, 1);
   }
   .bottom {
+    p {
+      width: 750px;
+      height: 88px;
+      padding-left: 36px;
+      line-height: 88px;
+      font-size: 32px;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: rgba(90, 90, 90, 1);
+      text-align: left;
+    }
+    .item {
+      text-align: left;
+      height: 144px;
+      padding: 30px 0 32px 36px;
+    }
+    .time {
+      height: 40px;
+      font-size: 28px;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: rgba(51, 51, 51, 1);
+    }
+    .content {
+      display: flex;
+      align-items: center;
+      line-height: 40px;
+      font-size: 24px;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: rgba(145, 145, 145, 1);
+      margin-top: 8px;
+      img {
+        width: 40px;
+        height: 40px;
+        display: block;
+        margin-right: 12px;
+      }
+    }
   }
 }
 </style>
