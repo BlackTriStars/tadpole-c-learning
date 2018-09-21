@@ -1,117 +1,124 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import index from '@/pages/index'
-import saomiao from '@/pages/saomiao'
+import Vue from "vue";
+import Router from "vue-router";
+
+// 主页
+import index from "@/pages/index";
+import saomiao from "@/pages/index/saomiao"; //扫描二维码
+import sign from "@/pages/index/sign"; //每日签到
 
 //  注册登录
-import loginMain from '@/pages/loginRegister/index'
-import firstLogin from '@/pages/loginRegister/firstLogin'
-import login from '@/pages/loginRegister/login'
-import resetPassword from '@/pages/loginRegister/resetPassword'
-import changePassword from '@/pages/loginRegister/changePassword'
+import loginMain from "@/pages/loginRegister/index";
+import firstLogin from "@/pages/loginRegister/firstLogin";
+import login from "@/pages/loginRegister/login";
+import resetPassword from "@/pages/loginRegister/resetPassword";
+import changePassword from "@/pages/loginRegister/changePassword";
 
 //  我的
-import my from '@/pages/my/index'
-import userInfo from '@/pages/my/userInfo'
-import task from '@/pages/my/task'
-
+import my from "@/pages/my/index";
+import userInfo from "@/pages/my/userInfo";
+import task from "@/pages/my/task";
 
 //online
-import onlineList from '@/pages/online/list'
+import onlineList from "@/pages/online/list";
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'index',
+  routes: [{
+      path: "/",
+      name: "index",
       meta: {
-        title: '首页',
+        title: "首页"
       },
       component: index
     },
     {
-      path: '/saomiao',
-      name: 'saomiao',
+      path: "/saomiao",
+      name: "saomiao",
       meta: {
-        title: '扫描二维码',
+        title: "扫描二维码"
       },
       component: saomiao
     },
     {
-      path: '/login&register',
-      redirect: '/login',
+      path: "/sign",
+      name: "sign",
+      meta: {
+        title: "每日签到"
+      },
+      component: sign
+    },
+    {
+      path: "/login&register",
+      redirect: "/login",
       component: loginMain,
-      children: [
-        {
-          path: '/firstLogin',
-          name: 'firstLogin',
+      children: [{
+          path: "/firstLogin",
+          name: "firstLogin",
           meta: {
-            title: '首次登录绑定',
+            title: "首次登录绑定"
           },
           component: firstLogin
         },
         {
-          path: '/login',
-          name: 'login',
+          path: "/login",
+          name: "login",
           meta: {
-            title: '注册登录',
+            title: "注册登录"
           },
           component: login
         },
         {
-          path: '/resetPassword',
-          name: 'resetPassword',
+          path: "/resetPassword",
+          name: "resetPassword",
           meta: {
-            title: '重置密码',
+            title: "重置密码"
           },
           component: resetPassword
         },
         {
-          path: '/changePassword',
-          name: 'changePassword',
+          path: "/changePassword",
+          name: "changePassword",
           meta: {
-            title: '修改密码',
+            title: "修改密码"
           },
           component: changePassword
-        },
-
+        }
       ]
     },
     {
-      path: '/my',
-      name: 'my',
+      path: "/my",
+      name: "my",
       meta: {
-        title: '我的',
-        btn: '注销'
+        title: "我的",
+        btn: "注销"
       },
       component: my
     },
     {
-      path: '/online',
-      name: 'online',
+      path: "/online",
+      name: "online",
       meta: {
-        title: '在线'
+        title: "在线"
       },
       component: onlineList
     },
     {
-      path: '/userInfo',
-      name: 'userInfo',
+      path: "/userInfo",
+      name: "userInfo",
       meta: {
-        title: '个人信息',
-        btn: '保存'
+        title: "个人信息",
+        btn: "保存"
       },
       component: userInfo
     },
     {
-      path: '/task',
-      name: 'task',
+      path: "/task",
+      name: "task",
       meta: {
-        title: '我的任务',
+        title: "我的任务"
       },
       component: task
     }
   ]
-})
+});
