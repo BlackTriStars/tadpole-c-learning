@@ -5,7 +5,7 @@
       <div class="nav" v-for="(category,index) in categories" :class="{selected: currentIndex == index}" @click="currentIndex = index; filter(index)"><span>{{category}}</span></div>
     </div>
     <div class="tab-item">
-      <card v-for="lesson in lessons" :keys="lesson.id" :card="lesson"></card>
+      <card v-for="lesson in lessons" :keys="lesson.id" :card="lesson" @click.native="go(lesson.id)"></card>
     </div>
   </div>
 </template>
@@ -38,6 +38,9 @@
     methods: {
       filter (i) {
         this.lessons = i == 0 ? this.allLessons : [];
+      },
+      go (id) {
+        this.$router.push({name: 'lesson', params: {id: id}});
       }
     }
   }

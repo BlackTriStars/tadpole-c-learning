@@ -1,5 +1,6 @@
-import Vue from "vue";
-import Router from "vue-router";
+import Vue from 'vue'
+import Router from 'vue-router'
+
 
 // 主页
 import index from "@/pages/index";
@@ -14,19 +15,29 @@ import resetPassword from "@/pages/loginRegister/resetPassword";
 import changePassword from "@/pages/loginRegister/changePassword";
 
 //  我的
-import my from "@/pages/my/index";
-import userInfo from "@/pages/my/userInfo";
-import task from "@/pages/my/task";
+import my from '@/pages/my/index'
+import userInfo from '@/pages/my/userInfo'
+import task from '@/pages/my/task'
+import exam from '@/pages/my/exam'
+import studyRecord from '@/pages/my/studyRecord'
+import collect from '@/pages/my/collect'
+import download from '@/pages/my/download'
+import about from '@/pages/my/about'
+import approving from '@/pages/my/approving'
+
 
 //online
 import onlineList from "@/pages/online/list";
 
-Vue.use(Router);
+//lesson
+import lesson from '@/pages/lesson/lesson'
+
+Vue.use(Router)
 
 export default new Router({
   routes: [{
-      path: "/",
-      name: "index",
+      path: '/',
+      name: 'index',
       meta: {
         title: "首页"
       },
@@ -49,12 +60,12 @@ export default new Router({
       component: sign
     },
     {
-      path: "/login&register",
-      redirect: "/login",
+      path: '/login&register',
+      redirect: '/login',
       component: loginMain,
       children: [{
-          path: "/firstLogin",
-          name: "firstLogin",
+          path: '/firstLogin',
+          name: 'firstLogin',
           meta: {
             title: "首次登录绑定"
           },
@@ -104,8 +115,16 @@ export default new Router({
       component: onlineList
     },
     {
-      path: "/userInfo",
-      name: "userInfo",
+      path: '/lesson/:id',
+      name: 'lesson',
+      meta: {
+        title: '课程'
+      },
+      component: lesson
+    },
+    {
+      path: '/userInfo',
+      name: 'userInfo',
       meta: {
         title: "个人信息",
         btn: "保存"
@@ -119,6 +138,54 @@ export default new Router({
         title: "我的任务"
       },
       component: task
+    },
+    {
+      path: '/exam',
+      name: 'exam',
+      meta: {
+        title: '我的考试',
+      },
+      component: exam
+    },
+    {
+      path: '/studyRecord',
+      name: 'studyRecord',
+      meta: {
+        title: '学习记录',
+      },
+      component: studyRecord
+    },
+    {
+      path: '/collect',
+      name: 'collect',
+      meta: {
+        title: '我的收藏',
+      },
+      component: collect
+    },
+    {
+      path: '/download',
+      name: 'download',
+      meta: {
+        title: '我的下载',
+      },
+      component: download
+    },
+    {
+      path: '/about',
+      name: 'about',
+      meta: {
+        title: '关于',
+      },
+      component: about
+    },
+    {
+      path: '/approving',
+      name: 'approving',
+      meta: {
+        title: '我的审批',
+      },
+      component: approving
     }
   ]
 });

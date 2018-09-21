@@ -3,11 +3,18 @@
     <div class="top">
       <span class="theme">选择表情</span>
       <div class="emjs">
-        <div class="emj" v-for="(v,i) in emjList"  :key='i'>
+        <div class="emj" v-for="(v,i) in emjList" :key='i' @click="sign(i)" :class="i==selected?'selected':''">
           <img :src="v.url" alt="">
           <span>{{v.content}}</span>
         </div>
       </div>
+      <button :disabled="disabled" @click="qiandao" :class="{active:disabled}">
+        {{content}}
+      </button>
+    </div>
+    <div class="line"></div>
+    <div class="bottom">
+
     </div>
   </div>
 
@@ -18,51 +25,68 @@ export default {
   name: "",
   data() {
     return {
-      emjList:[
+      content: "立即签到",
+      emjList: [
         {
-          content:"开心",
-          url:require("../../assets/index/kx.png")
-        },
-         {
-          content:"奋斗",
-          url:require("../../assets/index/fd.png")
+          content: "开心",
+          url: require("../../assets/index/kx.png")
         },
         {
-          content:"安静",
-          url:require("../../assets/index/aj.png")
+          content: "奋斗",
+          url: require("../../assets/index/fd.png")
         },
         {
-          content:"困",
-          url:require("../../assets/index/k.png")
+          content: "安静",
+          url: require("../../assets/index/aj.png")
         },
         {
-          content:"发呆",
-          url:require("../../assets/index/d.png")
+          content: "困",
+          url: require("../../assets/index/k.png")
         },
         {
-          content:"无聊",
-          url:require("../../assets/index/wl.png")
+          content: "发呆",
+          url: require("../../assets/index/d.png")
         },
         {
-          content:"难过",
-          url:require("../../assets/index/ng.png")
+          content: "无聊",
+          url: require("../../assets/index/wl.png")
         },
         {
-          content:"生病",
-          url:require("../../assets/index/sb.png")
+          content: "难过",
+          url: require("../../assets/index/ng.png")
         },
         {
-          content:"调皮",
-          url:require("../../assets/index/tp.png")
+          content: "生病",
+          url: require("../../assets/index/sb.png")
         },
         {
-          content:"怒",
-          url:require("../../assets/index/n.png")
+          content: "调皮",
+          url: require("../../assets/index/tp.png")
+        },
+        {
+          content: "怒",
+          url: require("../../assets/index/n.png")
         }
+      ],
+      selected: "",
+      disabled: false,
+      signList:[
+        
       ]
     };
   },
-
+  created() {
+    console.log(this.selected, "一开始");
+  },
+  methods: {
+    sign: function(i) {
+      this.selected = i;
+    },
+    qiandao: function() {
+      this.disabled = true;
+      this.content = "今日已签到";
+    }
+  }
 };
 </script>
 
@@ -88,7 +112,7 @@ export default {
       display: flex;
       flex-wrap: wrap;
       width: 680px;
-      margin: 0 auto;
+      margin: 0 auto 36px;
       justify-content: space-between;
 
       .emj {
@@ -115,7 +139,41 @@ export default {
           margin-top: 8px;
         }
       }
+      .selected {
+        background: linear-gradient(
+          225deg,
+          rgba(255, 253, 247, 1) 0%,
+          rgba(240, 233, 213, 1) 100%
+        );
+        border-radius: 8px;
+        border: 2px solid rgba(225, 204, 161, 1);
+      }
     }
+    button {
+      width: 420px;
+      height: 88px;
+      margin: 0 auto;
+      background: rgba(225, 204, 161, 1);
+      border-radius: 44px;
+      box-shadow: none;
+      border: none;
+      font-size: 36px;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      line-height: 50px;
+    }
+    .active {
+      background: rgba(225, 204, 161, 1);
+      opacity: 0.5;
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+  .line {
+    height: 20px;
+    background: rgba(243, 247, 255, 1);
+  }
+  .bottom {
   }
 }
 </style>
