@@ -6,6 +6,7 @@ import Router from 'vue-router'
 import index from "@/pages/index";
 import saomiao from "@/pages/index/saomiao"; //扫描二维码
 import sign from "@/pages/index/sign"; //每日签到
+import jifen from "@/pages/index/jifen"; //积分榜
 
 //  注册登录
 import loginMain from "@/pages/loginRegister/index";
@@ -58,6 +59,14 @@ export default new Router({
         title: "每日签到"
       },
       component: sign
+    },
+    {
+      path: "/jifen",
+      name: "jifen",
+      meta: {
+        title: "积分榜"
+      },
+      component: jifen
     },
     {
       path: '/login&register',
