@@ -6,7 +6,8 @@
     <i class="icon-search"></i>
     <input type="search" @search="search" v-model="searchTxt" placeholder="搜索您感兴趣的课程">
     <div class="email">
-       <img src="../../assets/common/email.png" alt="" srcset="">
+      <img src="../../assets/common/email.png" alt="" srcset="">
+      <i class="news" v-if="news>0">{{news}}</i>
     </div>
   </div>
 </template>
@@ -18,6 +19,7 @@ export default {
       searchTxt: ""
     };
   },
+  props: ["news"],
   methods: {
     search() {
       this.$emit("afterInput", this.searchTxt);
@@ -79,6 +81,20 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    .news {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      background: rgba(255, 64, 64, 1);
+      border-radius: 50%;
+      left: 62px;
+      top: 0;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
   }
 }
 </style>

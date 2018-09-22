@@ -7,6 +7,8 @@ import index from "@/pages/index";
 import saomiao from "@/pages/index/saomiao"; //扫描二维码
 import sign from "@/pages/index/sign"; //每日签到
 import jifen from "@/pages/index/jifen"; //积分榜
+import news from "@/pages/index/news"; //消息
+import newsInfo from "@/pages/index/newsInfo"; //消息详情
 
 //  注册登录
 import loginMain from "@/pages/loginRegister/index";
@@ -67,6 +69,21 @@ export default new Router({
         title: "积分榜"
       },
       component: jifen
+    }, {
+      path: "/news",
+      name: "news",
+      meta: {
+        title: "消息"
+      },
+      component: news
+    },
+    {
+      path: "/newsInfo",
+      name: "newsInfo",
+      meta: {
+        title: "消息详情"
+      },
+      component: newsInfo
     },
     {
       path: '/login&register',

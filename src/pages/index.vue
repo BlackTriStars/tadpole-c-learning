@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     <!-- 顶部搜索 -->
-    <search></search>
+    <search :news='newsNum'></search>
 
     <!-- 轮播图 -->
     <div class="swipe">
@@ -135,8 +135,6 @@
       </div>
     </div>
 
-
-
     <!-- 任务 -->
     <div class="lesson" style="margin-bottom:20px">
       <div class="theme">
@@ -164,10 +162,6 @@
 </template>
 
 
-  </div>
-
-</template>
-
 
 
 
@@ -179,6 +173,7 @@ export default {
     return {
       sign: "您今天尚未签到",
       jifen: "126",
+      newsNum: "5",
       swiperOption: {
         pagination: {
           el: ".swiper-pagination"
@@ -358,6 +353,7 @@ export default {
       }
     };
   },
+ 
   components: {
     search
   }
