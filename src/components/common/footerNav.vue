@@ -71,21 +71,25 @@ export default {
     }
   },
   watch: {
-    $route(v) {
-      if (v.name === "index") {
-        this.currentIndex = 0;
-      }
-      if (v.name === "online") {
-        this.currentIndex = 1;
-      }
-      if (v.name === "task") {
-        this.currentIndex = 2;
-      }
-      if (v.name === "zhibo") {
-        this.currentIndex = 3;
-      }
-      if (v.name === "my") {
-        this.currentIndex = 4;
+    $route:{
+      immediate: true,
+      deep: true,
+      handler(v) {
+        if (v.name === "index") {
+          this.currentIndex = 0;
+        }
+        if (v.name === "online") {
+          this.currentIndex = 1;
+        }
+        if (v.name === "task") {
+          this.currentIndex = 2;
+        }
+        if (v.name === "zhibo") {
+          this.currentIndex = 3;
+        }
+        if (v.name === "my") {
+          this.currentIndex = 4;
+        }
       }
     }
   }

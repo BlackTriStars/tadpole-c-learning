@@ -1,7 +1,9 @@
 @<template>
   <div class="listItem">
-    <div class="itemLeft"><slot name="left"></slot></div>
-    <div class="itemRight"><slot name="right"></slot></div>
+    <div class="listItemWrap">
+      <div class="itemLeft"><slot name="left"></slot></div>
+      <div class="itemRight"><slot name="right"></slot></div>
+    </div>
   </div>
 </template>
 
@@ -13,15 +15,21 @@ export default {
 
 <style lang="less">
 .listItem{
-  display: flex;
-  padding-top: 40px;
+  padding: 40px 44px 0 36px;
   height: 260px;
-  border-bottom: 1px solid rgb(233,233,233) ;/*no*/
-  .itemLeft{
-    margin-right: 30px;
-    width: 240px;
-    height: 160px;
-    position: relative;
+  &:active{
+    background: #fafafa;
+  }
+  .listItemWrap{
+    display: flex;
+    height: 100%;
+    border-bottom: 1px solid rgb(233,233,233) ;/*no*/
+    .itemLeft{
+      margin-right: 30px;
+      width: 240px;
+      height: 160px;
+      position: relative;
+    }
   }
 }
 </style>

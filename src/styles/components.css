@@ -19,8 +19,7 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 1px;
-  /*no*/
+  height: 2px;/*no*/
   background:linear-gradient(90deg, rgba(95, 170, 251, 1) 0%, rgba(46, 138, 241, 1) 100%);
   width: 100px;
   transition: all .3s;

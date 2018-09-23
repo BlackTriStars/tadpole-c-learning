@@ -1,5 +1,5 @@
 @<template>
-  <div class="actionSheet" :class="{show: show}" @transitionend="handlerTransition" v-show="!disappear" @click="spaceClick">
+  <div class="actionSheet" :class="{show: show}" @transitionend="handlerTransition" v-if="!disappear" @click="spaceClick">
     <div ref="wrap" class="wrap appear">
       <div class="actionSheetContainer">
         <div class="headTitle">
@@ -30,11 +30,10 @@ export default {
     }
   },
   methods: {
-    showSheet(){
+    async showSheet(){
       this.disappear = false
-      this.$nextTick(()=>{
-        this.show = true
-      })
+      await this.sleep(10)
+      this.show = true
     },
     handlerTransition(){
       console.log('transitionEnd')
@@ -45,6 +44,13 @@ export default {
       const target = e.target
       if(wrap.contains(target)) return
       this.show = false
+    },
+    sleep(time){
+      return new Promise(resolve=>{
+        setTimeout(() => {
+          resolve()
+        }, time);
+      })
     }
   },
   watch: {

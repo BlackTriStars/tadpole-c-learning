@@ -27,6 +27,7 @@ import collect from '@/pages/my/collect'
 import download from '@/pages/my/download'
 import about from '@/pages/my/about'
 import approving from '@/pages/my/approving'
+import approvingM from '@/pages/my/approvingM'
 
 
 //online
@@ -212,6 +213,14 @@ export default new Router({
         title: '我的审批',
       },
       component: approving
+    },
+    {
+      path: '/approvingM',
+      name: 'approvingM',
+      meta: {
+        title: '我的审批',
+      },
+      component: approvingM
     }
   ]
 });

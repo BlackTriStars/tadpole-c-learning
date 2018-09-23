@@ -97,6 +97,9 @@ export default {
       justify-content: space-between;
       align-items: center;
       height: 162px;
+      &:active{
+        background: #fafafa;
+      }
       &+.item{
         margin-top: 20px;
       }
