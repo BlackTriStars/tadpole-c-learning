@@ -10,6 +10,10 @@ import jifen from "@/pages/index/jifen"; //积分榜
 import news from "@/pages/index/news"; //消息
 import newsInfo from "@/pages/index/newsInfo"; //消息详情
 
+
+//  积分兑换
+import productList from "@/pages/exchange/productList";
+
 //  注册登录
 import loginMain from "@/pages/loginRegister/index";
 import firstLogin from "@/pages/loginRegister/firstLogin";
@@ -85,6 +89,14 @@ export default new Router({
         title: "消息详情"
       },
       component: newsInfo
+    },
+    {
+      path: "/productList",
+      name: "productList",
+      meta: {
+        title: "积分兑换"
+      },
+      component: productList
     },
     {
       path: '/login&register',
