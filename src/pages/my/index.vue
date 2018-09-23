@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="list">
-      <div class="listItem" v-for="(item, i) in myList" :key="i">
+      <div class="myListItem" v-for="(item, i) in myList" :key="i" @click="$router.push({name: item.name})">
         <div class="item">
           <i :class="item.icon"></i>
           <p>{{item.text}}</p>
@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="list">
-      <div class="listItem" v-for="(item, i) in myList2" :key="i">
+      <div class="myListItem" v-for="(item, i) in myList2" :key="i" @click="$router.push({name: item.name})">
         <div class="item">
           <i :class="item.icon"></i>
           <p>{{item.text}}</p>
@@ -50,41 +50,60 @@ export default {
       myList:[
         {
           icon: 'icon-task',
-          text: '我的任务'
+          text: '我的任务',
+          name: 'task'
         },
         {
           icon: 'icon-exam',
-          text: '我的考试'
+          text: '我的考试',
+          name: 'exam'
         },
         {
           icon: 'icon-study-record',
-          text: '学习记录'
+          text: '学习记录',
+          name: 'studyRecord'
         },
         {
           icon: 'icon-collect',
-          text: '我的收藏'
+          text: '我的收藏',
+          name: 'collect'
         },
         {
           icon: 'icon-download',
-          text: '我的下载'
+          text: '我的下载',
+          name: 'download'
+        },
+        {
+          icon: 'icon-integration',
+          text: '我的兑换',
+          name: 'intergation'
         },
         {
           icon: 'icon-approval',
-          text: '审批任务'
+          text: '审批任务',
+          name: 'approving'
+        },
+        {
+          icon: 'icon-survey',
+          text: '问卷调查',
+          name: 'survey'
         }
       ],
       myList2:[
         {
           icon: 'icon-user',
-          text: '个人信息'
+          text: '个人信息',
+          name: 'userInfo'
         },
         {
           icon: 'icon-password',
-          text: '修改密码'
+          text: '修改密码',
+          name: 'changePassword'
         },
         {
           icon: 'icon-about',
-          text: '关于'
+          text: '关于',
+          name: 'about'
         }
       ]
     }
@@ -110,7 +129,7 @@ export default {
 <style lang='less' rel='stylesheet/less'>
   .my{
     background:rgb(243,247,255);
-    min-width: 100vh;
+    min-width: 100vw;
     .userInfoWrap{
       height: 284px;
       width: 100%;
@@ -157,7 +176,7 @@ export default {
     .list{
       background: #fff;
       margin-top: 20px;
-      .listItem{
+      .myListItem{
         padding: 0 38px;
         .item{
           height: 105px;
