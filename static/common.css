@@ -33,10 +33,12 @@ figcaption {
   box-sizing: border-box;
 }
 
-html,body {
-  font-family:PingFangSC-Regular;
+html,
+body {
+  font-family: PingFangSC-Regular;
   height: 100%;
 }
+
 li,
 ol {
   list-style: none;
@@ -56,10 +58,11 @@ textarea {
   -webkit-appearance: none;
 }
 
-img{
+img {
   width: 100%;
   display: block;
 }
+
 .clear:after {
   content: '';
   display: block;
@@ -95,10 +98,12 @@ img{
   display: block;
 }
 
+i{
+   font-style:normal
+}
+
 .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-

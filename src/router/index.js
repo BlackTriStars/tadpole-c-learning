@@ -13,6 +13,7 @@ import newsInfo from "@/pages/index/newsInfo"; //消息详情
 
 //  积分兑换
 import productList from "@/pages/exchange/productList";
+import productInfo from "@/pages/exchange/productInfo"; //商品详情
 
 //  注册登录
 import loginMain from "@/pages/loginRegister/index";
@@ -96,6 +97,10 @@ export default new Router({
         title: "积分兑换"
       },
       component: productList
+    }, {
+      path: "/productInfo",
+      name: "productInfo",
+      component: productInfo
     },
     {
       path: '/login&register',
