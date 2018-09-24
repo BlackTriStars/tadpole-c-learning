@@ -8,13 +8,14 @@
 
 <script>
 import defaultLayout from "@/components/layout/default.vue";
+import myarea from "../node_modules/vue-myarea/area.vue";
 import { mapMutations } from "vuex";
 export default {
   name: "App",
   data() {
     return {
       headerShowList: {
-        exclude: ['index', 'login', 'online', 'lesson','productList','productInfo']
+        exclude: ['index', 'login', 'online', 'lesson','productList','productInfo','addEdit']
       },
       footerShowList: {
         include: [ 'index', 'my', 'online' ]

@@ -14,7 +14,8 @@ import newsInfo from "@/pages/index/newsInfo"; //消息详情
 //  积分兑换
 import productList from "@/pages/exchange/productList";
 import productInfo from "@/pages/exchange/productInfo"; //商品详情
-
+import addManage from "@/pages/exchange/addManage"; //地址管理
+import addEdit from "@/pages/exchange/addEdit";
 //  注册登录
 import loginMain from "@/pages/loginRegister/index";
 import firstLogin from "@/pages/loginRegister/firstLogin";
@@ -98,10 +99,25 @@ export default new Router({
         title: "积分兑换"
       },
       component: productList
-    }, {
+    }, 
+    {
       path: "/productInfo",
       name: "productInfo",
       component: productInfo
+    }, {
+      path: "/addManage",
+      name: "addManage",
+       meta: {
+         title: "地址管理"
+       },
+      component: addManage
+    }, {
+      path: "/addEdit",
+      name: "addEdit",
+      meta: {
+        title: "地址管理"
+      },
+      component: addEdit
     },
     {
       path: '/login&register',

@@ -69,7 +69,7 @@
           <div class="phone">{{address_info.phone}}</div>
         </div>
         <div class="bottom">
-          <div class="staus" v-if="address_info.staus">默认</div>
+          <div class="state" v-if="address_info.state">默认</div>
           <div class="loc">{{address_info.loc}}</div>
         </div>
       </div>
@@ -113,7 +113,7 @@ export default {
       address_info: {
         name: "张先生",
         phone: "18221745618",
-        staus: true,
+        state: true,
         loc: "上海市长宁区将建路138号32F502"
       }
     };
@@ -321,12 +321,13 @@ export default {
     .phone {
       margin-left: 56px;
     }
-    .staus {
+    .state {
       width: 66px;
       height: 32px;
       border-radius: 4px;
       border: 2px solid rgba(49, 113, 246, 1);
       color: #3171f6;
+      line-height: 32px;
     }
     .loc {
       font-size: 28px;
