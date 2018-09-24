@@ -41,6 +41,11 @@ import onlineList from "@/pages/online/list";
 //lesson
 import lesson from '@/pages/lesson/lesson'
 
+//test
+import testList from '@/pages/test/test-list'
+import testCover from '@/pages/test/test-cover'
+import testDetail from '@/pages/test/test-detail'
+
 Vue.use(Router)
 
 export default new Router({
@@ -238,6 +243,30 @@ export default new Router({
         title: '我的审批',
       },
       component: approvingM
+    },
+    {
+      path: '/test-list',
+      name: 'testList',
+      meta: {
+        title: '我的考试',
+      },
+      component: testList
+    },
+    {
+      path: '/test-cover',
+      name: 'testCover',
+      meta: {
+        title: '考试名称',
+      },
+      component: testCover
+    },
+    {
+      path: '/test-detail',
+      name: 'testDetail',
+      meta: {
+        title: '考试',
+      },
+      component: testDetail
     }
   ]
 });
