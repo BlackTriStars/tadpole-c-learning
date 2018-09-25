@@ -6,7 +6,6 @@ import router from './router'
 import store from './store' //vuex的
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueScroller from 'vue-scroller'
-import VueMyarea from 'vue-myarea'
 import MintUI from 'mint-ui';
 import 'lib-flexible';
 import 'whatwg-fetch';
