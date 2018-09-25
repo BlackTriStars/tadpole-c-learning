@@ -5,13 +5,14 @@
             <h1>
                 <i></i>倒计时 {{test.timeLimit | toMin}}
             </h1>
-            <div class="rightBtn"><a>交卷</a></div>
+            <div class="rightBtn"><a @click="submit()">交卷</a></div>
         </div>
         <div class="question" v-for="(value, index) in test.data" :key="index" v-show="index == questionIndex">
             <i>填空</i>
             <p>{{index + 1}}、{{value.question}}</p>
             <div class="answer">
-                <input type="text" placeholder="请输入填空题答案" v-show="value.type== 'fillin'">
+                <input type="text" placeholder="请输入填空题答案" v-show="value.type== 'fillin'" v-model="answer[index]">
+                <p type="radio" :name="index" v-show="value.type== 'choose'" v-for="(item, key) in value.choice" :key="key" :class="{selected: key == answer[index]}" @click="answer[index] = key"><span>{{key}}</span>{{item}}</p>
             </div>
         </div>
         <div class="select">
@@ -20,6 +21,7 @@
     </div>
 </template>
 <script>
+import { MessageBox } from 'mint-ui';
 export default {
   data() {
     return {
@@ -28,8 +30,10 @@ export default {
           {
             question: "我是问题题目，如何超过两行时候需要折",
             type: "choose",
-            a: "正确",
-            b: "错误"
+            choice: {
+              A: "正确",
+              B: "错误"
+            }
           },
           {
             question: "我是问答题目，如何超过两行时候需要折行显示具体详细。",
@@ -44,7 +48,8 @@ export default {
         total: 3
       },
       timer: null,
-      questionIndex: 0
+      questionIndex: 0,
+      answer: ['A']
     };
   },
   methods: {
@@ -57,7 +62,16 @@ export default {
         _this.test.timeLimit--;
       }
     },
-    next() {}
+    submit () {
+      const rest =this.test.total - ((this.answer.filter((value) => { return value != '' && value != undefined})).length);
+      MessageBox({
+        title: '确定提交考试？',
+        message: `共 <span style="color: #3171f6"> ${this.test.total} </span>题，剩余未做 <span style="color: #3171f6">${rest}</span> 题`,
+        showCancelButton: true,
+        confirmButtonText: '现在交卷',
+        cancelButtonText: '继续答题'
+      })
+    }
   },
   mounted() {
     const _this = this;
@@ -134,6 +148,29 @@ export default {
     }
     input::-webkit-input-placeholder {
       color: #bfbfbf;
+    }
+    p {
+      text-align: left;
+      text-indent: 0;
+      margin-top: 60px;
+      span {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
+        color: #5a5a5a;
+        line-height: 56px;
+        margin-right: 40px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 32px;
+      }
+    }
+    p.selected {
+      color: #3171F6;
+      span {
+        color: #3171F6;
+      }
     }
   }
   .select {
