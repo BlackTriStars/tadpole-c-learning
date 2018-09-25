@@ -173,6 +173,7 @@ export default {
       color: rgba(51, 51, 51, 1);
       line-height: 40px;
       width: 368px;
+      white-space:nowrap; 
       text-overflow:ellipsis;
       overflow: hidden;
     }
