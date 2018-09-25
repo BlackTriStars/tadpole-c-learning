@@ -17,7 +17,6 @@ import './styles/components.css'
 Vue.use(MintUI);
 Vue.use(VueScroller)
 Vue.use(VueAwesomeSwiper);
-Vue.use(VueMyarea);
 
 Vue.config.productionTip = false
 

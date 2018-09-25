@@ -292,6 +292,7 @@ input:focus {
   }
 }
 .select {
+  // background-color: red;
   .mint-checklist-title {
     margin: 0;
   }

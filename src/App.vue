@@ -8,7 +8,6 @@
 
 <script>
 import defaultLayout from "@/components/layout/default.vue";
-import myarea from "../node_modules/vue-myarea/area.vue";
 import { mapMutations } from "vuex";
 export default {
   name: "App",
