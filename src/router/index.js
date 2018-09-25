@@ -34,6 +34,9 @@ import download from '@/pages/my/download'
 import about from '@/pages/my/about'
 import approving from '@/pages/my/approving'
 import approvingM from '@/pages/my/approvingM'
+import survey from '@/pages/my/survey'
+import surveyDetail from '@/pages/my/surveyDetail'
+import submitSuccess from '@/pages/my/submitSuccess'
 
 
 //online
@@ -259,6 +262,30 @@ export default new Router({
         title: '我的审批',
       },
       component: approvingM
+    },
+    {
+      path: '/survey',
+      name: 'survey',
+      meta: {
+        title: '问卷调查',
+      },
+      component: survey
+    },
+    {
+      path: '/surveyDetail',
+      name: 'surveyDetail',
+      meta: {
+        title: '问卷详情',
+      },
+      component: surveyDetail
+    },
+    {
+      path: '/submitSuccess',
+      name: 'submitSuccess',
+      meta: {
+        title: '提交成功',
+      },
+      component: submitSuccess
     },
     {
       path: '/test-list',
