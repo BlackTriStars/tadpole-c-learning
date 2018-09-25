@@ -52,6 +52,7 @@ import lesson from '@/pages/lesson/lesson'
 import testList from '@/pages/test/test-list'
 import testCover from '@/pages/test/test-cover'
 import testDetail from '@/pages/test/test-detail'
+import testResult from '@/pages/test/test-result'
 
 Vue.use(Router)
 
@@ -330,6 +331,14 @@ export default new Router({
         title: '考试',
       },
       component: testDetail
+    },
+    {
+      path: '/test-result',
+      name: 'testResult',
+      meta: {
+        title: '考试',
+      },
+      component: testResult
     }
   ]
 });
