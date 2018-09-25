@@ -9,10 +9,10 @@
       <div class="rightBtn">
         <div class="jifen">
           <span class="">编辑</span>
-        </div> 
+        </div>
       </div>
     </div>
-    <div class="address" >
+    <div class="address">
       <div class="address_info">
         <div class="top">
           <div class="name">{{name}}</div>
@@ -32,15 +32,24 @@
       <div class="num">{{num}}分</div>
     </div>
 
+    <div class="product_table" v-for="(item,index) in getProductList" :key="index">
+      <img :src="item.productImg" alt="">
+      <div class="product_info">
+        <div class="name left">{{item.productName}}</div>
+        <div class="price left">消耗：{{item.productPrice}}积分</div>
+        <div class="proNum right">x{{item.prductQty}}</div>
+      </div>
 
+    </div>
+    <div class="foot">
+      <button>立即兑换</button>
+    </div>
   </div>
-
 
 </template>
 
 
 <script>
-
 export default {
   data() {
     return {
@@ -49,12 +58,24 @@ export default {
       phone: "18221745618",
       state: true,
       loc: "上海市长宁区将建路138号32F502",
-      num:"2"
-    }
+      num: "2",
+      getProductList: [
+        {
+          productImg: require("../../assets/index/1.jpg"),
+          productName: "西瓜",
+          productPrice: 1,
+          prductQty: 2
+        },
+        {
+          productImg: require("../../assets/index/2.jpg"),
+          productName: "南瓜",
+          productPrice: 1,
+          prductQty: 3
+        }
+      ]
+    };
   },
-  methods: {
-
-  }
+  methods: {}
 };
 </script>
 
@@ -67,6 +88,7 @@ input:focus {
   height: 100%;
   width: 100%;
   background: rgba(243, 247, 255, 1);
+  padding-bottom: 98px;
 }
 .title {
   background: #fff;
@@ -168,6 +190,7 @@ input:focus {
   justify-content: space-between;
   background-color: #fff;
   padding: 0 36px;
+  margin-bottom: 20px;
   span {
     font-size: 28px;
     font-family: PingFangSC-Regular;
@@ -179,6 +202,79 @@ input:focus {
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(51, 51, 51, 1);
+  }
+}
+
+.product_table {
+  display: flex;
+  width: 100%;
+  height: 207px;
+  // align-items: center;
+  background-color: #fff;
+  padding: 0 36px;
+  border-bottom: 2px solid rgba(233, 233, 233, 1);
+  img {
+    width: 146px;
+    height: 146px;
+    display: block;
+    margin: 30px 30px 0 20px;
+  }
+}
+.product_info {
+  text-align: left;
+  width: 468px;
+  margin-top: 30px;
+
+  .name {
+    width: 356px;
+    font-size: 28px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .price {
+    font-size: 24px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    margin-top: 8px;
+  }
+  .proNum {
+    font-size: 24px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+  }
+}
+
+.foot {
+  height: 98px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999;
+  display: flex;
+  button {
+    background: linear-gradient(
+      135deg,
+      rgba(95, 170, 251, 1) 0%,
+      rgba(49, 113, 246, 1) 100%
+    );
+    box-shadow: 0px -4px 12px 0px rgba(0, 0, 0, 0.04);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding-right: 36px;
+    align-items: center;
+    font-size: 32px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    justify-content: center;
+    border: none;
   }
 }
 </style>

@@ -18,6 +18,7 @@ import addManage from "@/pages/exchange/addManage"; //地址管理
 import addEdit from "@/pages/exchange/addEdit"; // 地址编辑
 import cart from "@/pages/exchange/cart"; // 购物车
 import cartManage from "@/pages/exchange/cartManage"; // 购物车编辑
+import myExchange from "@/pages/exchange/myExchange"; // 我的兑换
 //  注册登录
 import loginMain from "@/pages/loginRegister/index";
 import firstLogin from "@/pages/loginRegister/firstLogin";
@@ -137,6 +138,14 @@ export default new Router({
       path: "/cartManage",
       name: "cartManage",
       component: cartManage
+    },
+    {
+      path: "/myExchange",
+      name: "myExchange",
+      meta: {
+        title: "我的兑换"
+      },
+      component: myExchange
     },
     {
       path: '/login&register',
