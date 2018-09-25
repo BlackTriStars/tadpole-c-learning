@@ -12,12 +12,10 @@ import 'whatwg-fetch';
 import './styles/mint.css'
 import './styles/fonts/style.css'
 import './styles/components.css'
-// import {} from 'vue-myarea';
 
 Vue.use(MintUI);
 Vue.use(VueScroller)
 Vue.use(VueAwesomeSwiper);
-Vue.use(VueMyarea);
 
 Vue.config.productionTip = false
 
