@@ -63,6 +63,7 @@ import testList from '@/pages/test/test-list'
 import testCover from '@/pages/test/test-cover'
 import testDetail from '@/pages/test/test-detail'
 import testResult from '@/pages/test/test-result'
+import testHistory from '@/pages/test/test-history'
 
 Vue.use(Router)
 
@@ -359,9 +360,17 @@ export default new Router({
       path: '/test-result',
       name: 'testResult',
       meta: {
-        title: '考试',
+        title: '标准普通话考试',
       },
       component: testResult
+    },
+    {
+      path: '/test-history',
+      name: 'testHistory',
+      meta: {
+        title: '标准普通话考试历史记录',
+      },
+      component: testHistory
     }
   ]
 });

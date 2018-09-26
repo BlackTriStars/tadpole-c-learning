@@ -2,12 +2,15 @@
     <div class="test-detail">
         <div class="title">
             <i class="icon-left" @click="$router.go(-1)"></i>
-            <h1>
+            <h1 v-if="!review">
                 <i></i>倒计时 {{test.timeLimit | toMin}}
             </h1>
-            <div class="rightBtn"><a @click="submit()">交卷</a></div>
+            <h1 v-if="review">
+                查看错题
+            </h1>
+            <div class="rightBtn"><a @click="submit()"  v-if="!review">交卷</a> <a @click="$router.replace({name: 'testCover'})"  v-if="review">重新考试</a></div>
         </div>
-        <div class="question" v-for="(value, index) in test.data" :key="index" v-show="index == questionIndex">
+        <div class="question" v-if="!review" v-for="(value, index) in test.data" :key="index" v-show="index == questionIndex">
             <i>填空</i>
             <p>{{index + 1}}、{{value.question}}</p>
             <div class="answer">
@@ -15,13 +18,21 @@
                 <p type="radio" :name="index" v-show="value.type== 'choose'" v-for="(item, key) in value.choice" :key="key" :class="{selected: key == answer[index]}" @click="answer[index] = key"><span>{{key}}</span>{{item}}</p>
             </div>
         </div>
+        <div class="question right" v-if="review"  v-for="(value, index) in reightAnswer.data" :key="index" v-show="index == questionIndex">
+          <i>填空</i>
+            <p>{{index + 1}}、{{value.question}}</p>
+            <div class="answer">
+                <input type="text" placeholder="请输入填空题答案" v-show="value.type== 'fillin'" disabled v-model="value.answer">
+                <p type="radio" :name="index" v-show="value.type== 'choose'" v-for="(item, key) in value.choice" :key="key" :class="{selected: key == value.answer}"><span>{{key == value.answer ? '&nbsp;': key}}</span>{{item}}</p>
+            </div>
+        </div>
         <div class="select">
-            <span v-show="questionIndex != 0"  @click="questionIndex = (questionIndex +1) > 0? questionIndex -1 : 0;">上一题</span>{{(questionIndex +1) + '/' + test.total}}<span v-show="(questionIndex +1) < test.total" @click="questionIndex = (questionIndex +1) < test.total? questionIndex + 1: test.total;">下一题</span>
+            <span v-show="questionIndex != 0"  @click="questionIndex = (questionIndex +1) > 0? questionIndex -1 : 0;">  <  上一题</span>{{(questionIndex +1) + '/' + test.total}}<span v-show="(questionIndex +1) < test.total" @click="questionIndex = (questionIndex +1) < test.total? questionIndex + 1: test.total;"><i class="icon-reight"></i>下一题 ></span>
         </div>
     </div>
 </template>
 <script>
-import { MessageBox } from 'mint-ui';
+import { MessageBox } from "mint-ui";
 export default {
   data() {
     return {
@@ -49,7 +60,32 @@ export default {
       },
       timer: null,
       questionIndex: 0,
-      answer: ['A']
+      answer: [],
+      reightAnswer: {
+        data: [
+          {
+            question: "我是问题题目，如何超过两行时候需要折",
+            type: "choose",
+            choice: {
+              A: "正确",
+              B: "错误"
+            },
+            answer: "A"
+          },
+          {
+            question: "我是问答题目，如何超过两行时候需要折行显示具体详细。",
+            type: "fillin",
+            answer: "我是正确答案"
+          },
+          {
+            question: "我是问答题目，如何超过两行时候需要折行显示具体详细。",
+            type: "fillin",
+            answer: "我是正确答案"
+          }
+        ],
+        total: 3
+      },
+      review: this.$route.query && this.$route.query.review
     };
   },
   methods: {
@@ -62,15 +98,24 @@ export default {
         _this.test.timeLimit--;
       }
     },
-    submit () {
-      const rest =this.test.total - ((this.answer.filter((value) => { return value != '' && value != undefined})).length);
+    submit() {
+      const rest =
+        this.test.total -
+        this.answer.filter(value => {
+          return value != "" && value != undefined;
+        }).length;
       MessageBox({
-        title: '确定提交考试？',
-        message: `共 <span style="color: #3171f6"> ${this.test.total} </span>题，剩余未做 <span style="color: #3171f6">${rest}</span> 题`,
+        title: "确定提交考试？",
+        message: `共 <span style="color: #3171f6"> ${
+          this.test.total
+        } </span>题，剩余未做 <span style="color: #3171f6">${rest}</span> 题`,
         showCancelButton: true,
-        confirmButtonText: '现在交卷',
-        cancelButtonText: '继续答题'
-      })
+        confirmButtonText: "现在交卷",
+        cancelButtonText: "继续答题"
+      }).then(action  => {
+        if (action == 'cancel') return;
+        this.$router.replace({ name: "testResult" });
+      });
     }
   },
   mounted() {
@@ -107,6 +152,9 @@ export default {
       position: relative;
       font-weight: 400;
     }
+    .rightBtn {
+      width: 144px;
+    }
     a {
       color: #3171f6;
     }
@@ -134,6 +182,19 @@ export default {
       text-align: left;
       text-indent: 2em;
       left: 72px;
+    }
+  }
+  .question.right {
+    .answer {
+      input {
+        color: #31C401;
+      }
+      p.selected {
+      color: #31C401;
+      span {
+        background: url('../../assets/right.png') center center/140% no-repeat;
+      }
+    }
     }
   }
   .answer {
@@ -167,9 +228,9 @@ export default {
       }
     }
     p.selected {
-      color: #3171F6;
+      color: #3171f6;
       span {
-        color: #3171F6;
+        color: #3171f6;
       }
     }
   }
@@ -189,6 +250,12 @@ export default {
       position: absolute;
       left: 42px;
       color: #3171f6;
+      i {
+        display: inline-block;
+        color: #3171f6;
+        width: 16px;
+        height: 28px;
+      }
     }
     span:last-child {
       left: auto;

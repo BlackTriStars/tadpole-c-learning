@@ -86,12 +86,12 @@
 
     <!-- 考试 -->
     <div class="test">
-      <div class="theme">
+      <div class="theme" @click="$router.push({name: 'testList'})">
         <span>考试</span>
         <img src="../assets/common/right.png" alt="">
       </div>
       <div class="main">
-        <div class="item" v-for="(item, index) in test.testList" :key="index">
+        <div class="item" v-for="(item, index) in test.testList" :key="index" @click="$router.push({name: 'testCover'})">
           <div class="top">
             <div class="neirong">
               {{item.content}}

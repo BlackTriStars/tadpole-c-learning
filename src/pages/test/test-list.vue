@@ -3,7 +3,7 @@
         <myTab :currentName='"a"'>
             <myTabPane :name='"a"' :label="'未通过'">
                 <template>        
-                    <div class="test-item" v-for="(item,index) in tests" :key="index">
+                    <div class="test-item" v-for="(item,index) in tests" :key="index" @click="$router.push({name: 'testCover'})">
                         <h3>{{item.name}}</h3>
                         <h3>共 {{item.totle}} 道题</h3>
                         <p>{{item.when}}</p>

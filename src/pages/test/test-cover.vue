@@ -14,7 +14,7 @@
             <button>答题详情</button>
             <button>开始答题</button>
         </div>
-        <button v-if="!info.begin">开始答题</button>
+        <button v-if="!info.begin" @click="$router.replace({name: 'testDetail'})">开始答题</button>
     </div>
 </template>
 <script>
