@@ -26,6 +26,16 @@ import login from "@/pages/loginRegister/login";
 import resetPassword from "@/pages/loginRegister/resetPassword";
 import changePassword from "@/pages/loginRegister/changePassword";
 
+
+
+// 资讯
+import infoList from "@/pages/information/infoList";
+import infoInfo from "@/pages/information/infoInfo";
+
+
+
+
+
 //  我的
 import my from '@/pages/my/index'
 import userInfo from '@/pages/my/userInfo'
@@ -147,6 +157,19 @@ export default new Router({
         title: "我的兑换"
       },
       component: myExchange
+    },
+    {
+      path: "/infoList",
+      name: "infoList",
+      meta: {
+        title: "资讯"
+      },
+      component: infoList
+    },
+    {
+      path: "/infoInfo",
+      name: "infoInfo",
+      component: infoInfo
     },
     {
       path: '/login&register',
