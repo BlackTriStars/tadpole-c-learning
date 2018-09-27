@@ -40,7 +40,7 @@
         this.lessons = i == 0 ? this.allLessons : [];
       },
       go (id) {
-        this.$router.push({name: 'lesson', params: {id: id}});
+        this.$router.push({name: 'lesson', params: {id: id, online: true}});
       }
     }
   }
