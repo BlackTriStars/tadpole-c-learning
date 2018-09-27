@@ -79,7 +79,7 @@ export default {
     color: rgba(34, 34, 34, 1);
     line-height: 44px;
     text-align: left;
-    margin-top: 40;
+    margin-top: 40px;
   }
 }
 </style>
