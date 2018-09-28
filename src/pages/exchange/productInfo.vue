@@ -8,7 +8,7 @@
       </h1>
       <div class="rightBtn">
 
-        <div class="cart" v-if="productNum>0">
+        <div class="cart" v-if="productNum>0"  @click="$router.push({name:'cart'})">
           <img src="../../assets/exchange/cart.png" alt="">
           <span class="cycle">{{productNum}}</span>
         </div>
@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <div class="address">
+    <div class="address"  @click="$router.push({name:'addManage'})">
       <div class="address_info">
         <div class="top">
           <div class="name">{{address_info.name}}</div>

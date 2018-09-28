@@ -88,6 +88,7 @@ export default {
   },
   created() {
     console.log(this.selected, "一开始");
+    // window.location.reload()
   },
   computed:{
     // reverseMessage:function(){

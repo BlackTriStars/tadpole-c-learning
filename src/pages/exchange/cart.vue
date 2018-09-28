@@ -8,11 +8,11 @@
       </h1>
       <div class="rightBtn">
         <div class="jifen">
-          <span class="">编辑</span>
+          <span class="" @click="$router.push({name:'cartManage'})">编辑</span>
         </div>
       </div>
     </div>
-    <div class="address">
+    <div class="address"  @click="$router.push({name:'addManage'})">
       <div class="address_info">
         <div class="top">
           <div class="name">{{name}}</div>
@@ -32,7 +32,7 @@
       <div class="num">{{num}}分</div>
     </div>
 
-    <div class="product_table" v-for="(item,index) in getProductList" :key="index">
+    <div class="product_table" v-for="(item,index) in getProductList" :key="index" >
       <img :src="item.productImg" alt="">
       <div class="product_info">
         <div class="name left">{{item.productName}}</div>

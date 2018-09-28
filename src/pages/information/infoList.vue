@@ -1,7 +1,7 @@
 <template>
   <div class="infoList">
 
-    <div class="item" v-for="(v,i) in itemList" :key="i">
+    <div class="item" v-for="(v,i) in itemList" :key="i" @click="$router.push({name:'infoInfo',params:{title:v.title}})">
       <img :src="v.imgUrl" alt="">
       <div class="info">
         <h1>{{v.title}}</h1>

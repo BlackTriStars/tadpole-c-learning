@@ -17,7 +17,7 @@ export default {
         exclude: ['index', 'login', 'online', 'lesson','productList','productInfo','addEdit','cart','cartManage','infoInfo']
       },
       footerShowList: {
-        include: [ 'index', 'my', 'online' ]
+        include: [ 'index', 'my', 'online','mianshou' ]
       },
     };
   },

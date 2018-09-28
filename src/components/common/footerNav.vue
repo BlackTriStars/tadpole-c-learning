@@ -54,7 +54,7 @@ export default {
           url = "online";
           break;
         case 2:
-          url = "task";
+          url = "mianshou";
           break;
         case 3:
           url = "zhibo";
@@ -81,7 +81,7 @@ export default {
         if (v.name === "online") {
           this.currentIndex = 1;
         }
-        if (v.name === "task") {
+        if (v.name === "mianshou") {
           this.currentIndex = 2;
         }
         if (v.name === "zhibo") {

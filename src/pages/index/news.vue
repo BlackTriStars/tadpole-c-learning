@@ -1,7 +1,7 @@
 <template>
   <div class="news">
     <div class="line"></div>
-    <div class="item" v-for="(v,i) in newsList" :key="i">
+    <div class="item" v-for="(v,i) in newsList" :key="i" @click="$router.push({name:'newsInfo', params:{title: v.title}})">
       <div class="info">
         <div class="theme">{{v.title}}</div>
         <div class="date">{{v.date}}</div>

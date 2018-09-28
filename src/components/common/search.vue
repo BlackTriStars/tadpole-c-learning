@@ -1,13 +1,16 @@
 <template>
   <div class="search">
-    <div class="sm">
+    <div class="sm" @click="$router.push({name:'saomiao'})">
       <img src="../../assets/common/scanning.png" alt="" srcset="">
     </div>
     <i class="icon-search"></i>
     <input type="search" @search="search" v-model="searchTxt" placeholder="搜索您感兴趣的课程">
+    <div class="jifen" @click="$router.push({name:'productList'})">
+      <img src="../../assets/common/jifen.png" alt="" srcset="">
+    </div>
     <div class="email">
       <img src="../../assets/common/email.png" alt="" srcset="">
-      <i class="news" v-if="news>0">{{news}}</i>
+      <i class="news" v-if="news>0" @click="$router.push({name:'news'})">{{news}}</i>
     </div>
   </div>
 </template>
@@ -62,7 +65,7 @@ export default {
   input {
     outline: none;
     border: none;
-    width: 7.013333rem;
+    width: 6.013333rem;
     height: 0.906667rem;
     background: rgba(243, 244, 248, 1);
     border-radius: 2px;
@@ -72,12 +75,22 @@ export default {
   input::-webkit-input-placeholder {
     color: rgba(197, 197, 197, 1);
   }
+  .jifen {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    img {
+      width: 40px;
+      height: 40px;
+      margin-left: 36px;
+    }
+  }
   .email {
     position: absolute;
     right: 0;
     top: 0;
     width: 1.493333rem;
-    height: 0.906667rem;
+    height: 68px;
     display: flex;
     align-items: center;
     justify-content: center;

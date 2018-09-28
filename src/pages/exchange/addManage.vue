@@ -1,7 +1,7 @@
 <template>
   <div class="addManage">
     <div class="line"></div>
-    <div class="address" v-for="(v,i) in address_info" :key="i">
+    <div class="address" v-for="(v,i) in address_info" :key="i" >
       <div class="address_info">
         <div class="top">
           <div class="name">{{v.name}}</div>
@@ -12,10 +12,10 @@
           <div class="loc">{{v.loc}}</div>
         </div>
       </div>
-      <span class="icon-exam"></span>
+      <span class="icon-exam"  @click="$router.push({name:'addEdit',params:{}})"></span>
 
     </div>
-    <div class="button">新建地址</div>
+    <div class="button"  @click="$router.push({name:'addEdit'})">新建地址</div>
   </div>
 </template>
 
@@ -51,7 +51,7 @@ export default {
 
 
 <style lang="less" scoped>
-.addManage{
+.addManage {
   //  background: rgba(243, 247, 255, 1);
 }
 .address {
@@ -61,7 +61,7 @@ export default {
   justify-content: space-between;
   background-color: #fff;
   margin: 0 32px;
-  border-bottom: 2px solid rgba(233,233,233,1);
+  border-bottom: 2px solid rgba(233, 233, 233, 1);
   .address_info {
     .top,
     .bottom {
@@ -102,7 +102,7 @@ export default {
       color: rgba(145, 145, 145, 1);
       line-height: 40px;
       position: absolute;
-      left:138px;
+      left: 138px;
       width: 414px;
       text-align: left;
       top: 0;
@@ -114,23 +114,22 @@ export default {
     font-size: 40px;
   }
 }
-.line{
+.line {
   height: 2px;
-  background-color: rgba(233,233,233,1);
+  background-color: rgba(233, 233, 233, 1);
 }
-.button{
-  width:678px;
-height:94px;
-border-radius:7px;
-border:2px solid rgba(49,113,246,1);
-font-size:32px;
-font-family:PingFangSC-Regular;
-font-weight:400;
-color:rgba(49,113,246,1);
-line-height:44px;
-margin: 40px auto 0;
-line-height: 94px;
+.button {
+  width: 678px;
+  height: 94px;
+  border-radius: 7px;
+  border: 2px solid rgba(49, 113, 246, 1);
+  font-size: 32px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(49, 113, 246, 1);
+  line-height: 44px;
+  margin: 40px auto 0;
+  line-height: 94px;
 }
-
 </style>
 

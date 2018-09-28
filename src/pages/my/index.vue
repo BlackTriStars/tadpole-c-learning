@@ -76,7 +76,7 @@ export default {
         {
           icon: 'icon-integration',
           text: '我的兑换',
-          name: 'intergation'
+          name: 'myExchange'
         },
         {
           icon: 'icon-approval',
@@ -127,79 +127,83 @@ export default {
 }
 </script>
 <style lang='less' rel='stylesheet/less'>
-  .my{
-    background:rgb(243,247,255);
-    min-width: 100vw;
-    .userInfoWrap{
-      height: 284px;
-      width: 100%;
-      background:linear-gradient(90deg,rgba(95,170,251,1) 0%,rgba(49,113,246,1) 100%);
-      display: flex;
-      padding: 30px 36px;
-      .head{
+.my {
+  background: rgb(243, 247, 255);
+  min-width: 100vw;
+  .userInfoWrap {
+    height: 284px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(95, 170, 251, 1) 0%,
+      rgba(49, 113, 246, 1) 100%
+    );
+    display: flex;
+    padding: 30px 36px;
+    .head {
+      width: 144px;
+      margin-right: 40px;
+      .headImg {
         width: 144px;
-        margin-right: 40px;
-        .headImg{
-          width: 144px;
-          height: 144px;
-          border-radius: 50%;
-          background: #fff;
-        }
+        height: 144px;
+        border-radius: 50%;
+        background: #fff;
       }
-      .info{
-        &>p{
-          font-size:28px;
-          font-family:PingFangSC-Regular;
-          color: #fff;
-          text-align: left;
-          font-weight: 100;
-          & + p{
-            margin-top: 20px;
-          }
-          &.name {
-            font-size:32px;
-            font-family:PingFangSC-Medium;
-            font-weight:500;
-          }
+    }
+    .info {
+      & > p {
+        font-size: 28px;
+        font-family: PingFangSC-Regular;
+        color: #fff;
+        text-align: left;
+        font-weight: 100;
+        & + p {
+          margin-top: 20px;
         }
-      }
-      .more{
-        margin-left: auto;
-        display: flex;
-        align-items: center;
-        &>i{
-          transform: rotate(180deg);
-          color: #fff;
+        &.name {
+          font-size: 32px;
+          font-family: PingFangSC-Medium;
+          font-weight: 500;
         }
       }
     }
-    .list{
-      background: #fff;
-      margin-top: 20px;
-      .myListItem{
-        padding: 0 38px;
-        .item{
-          height: 105px;
-          border-bottom: 1px solid rgb(233,233,233);
-          display: flex;
-          align-items: center;
-          &>i:nth-child(1) {
-            font-size: 36px;
-            margin-right: 20px;
-          }
-          &>i.icon-right{
-            margin-left: auto;
-            color: #D5D5D5;
-          }
-          p{
-            font-size:28px;
-            font-family:PingFangSC-Regular;
-          }
-        }
-        &:active{
-          background: #fafafa;
-        }
+    .more {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      & > i {
+        transform: rotate(180deg);
+        color: #fff;
       }
     }
   }
+  .list {
+    background: #fff;
+    margin-top: 20px;
+    .myListItem {
+      padding: 0 38px;
+      .item {
+        height: 105px;
+        border-bottom: 1px solid rgb(233, 233, 233);
+        display: flex;
+        align-items: center;
+        & > i:nth-child(1) {
+          font-size: 36px;
+          margin-right: 20px;
+        }
+        & > i.icon-right {
+          margin-left: auto;
+          color: #d5d5d5;
+        }
+        p {
+          font-size: 28px;
+          font-family: PingFangSC-Regular;
+        }
+      }
+      &:active {
+        background: #fafafa;
+      }
+    }
+  }
+}
 </style>

@@ -86,10 +86,12 @@ export default {
   }
 };
 </script>
-<style lang="less">
+
+<style lang="less" scoped>
 .lesson {
   background: #f3f7ff;
   position: relative;
+  padding-bottom: 98px;
   .back {
     position: absolute;
     width: 24px;
