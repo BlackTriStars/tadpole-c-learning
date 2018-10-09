@@ -243,6 +243,8 @@ export default {
     justify-content: center;
     background: #fff;
     box-shadow:0px -4px 12px 0px rgba(0,0,0,0.04);
+    font-size:32px;
+    color:rgba(49,113,246,1);
     &:active{
       background: rgba( 30, 30, 30, .1);
     }

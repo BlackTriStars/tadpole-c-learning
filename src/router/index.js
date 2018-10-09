@@ -224,14 +224,6 @@ export default new Router({
       meta: {
         title: '我的审批',
       },
-      component: approving
-    },
-    {
-      path: '/approvingM',
-      name: 'approvingM',
-      meta: {
-        title: '我的审批',
-      },
       component: approvingM
     }
   ]

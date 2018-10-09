@@ -80,7 +80,6 @@ export default {
 .collect{
   height: 100%;
   .taskWrap{
-    padding: 0 44px 0 36px;
     img{
       width: 100%;
       height: 100%;

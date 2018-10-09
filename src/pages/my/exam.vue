@@ -4,6 +4,23 @@
       <myTabPane :name="'未通过'" :label="'未通过'">
         <div class="examWrap">
           <div class="item" v-for="(item, index) in failList" :key="index">
+            <div class="content">
+              <div class="desc">
+                <h4>{{item.title}}</h4>
+                <p>{{item.beginTime}}~{{item.endTime}}</p>
+              </div>
+              <div class="tip">
+                <h4>共{{item.total}}道题</h4>
+                <p>作答时间: {{item.time}}分钟</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </myTabPane>
+      <myTabPane :name="'已通过'" :label="'已通过'">
+        <div class="examWrap">
+          <div class="item" v-for="(item, index) in successList" :key="index">
+          <div class="content">
             <div class="desc">
               <h4>{{item.title}}</h4>
               <p>{{item.beginTime}}~{{item.endTime}}</p>
@@ -13,19 +30,6 @@
               <p>作答时间: {{item.time}}分钟</p>
             </div>
           </div>
-        </div>
-      </myTabPane>
-      <myTabPane :name="'已通过'" :label="'已通过'">
-        <div class="examWrap">
-          <div class="item" v-for="(item, index) in successList" :key="index">
-            <div class="desc">
-              <h4>{{item.title}}</h4>
-              <p>{{item.beginTime}}~{{item.endTime}}</p>
-            </div>
-            <div class="tip">
-              <h4>共{{item.total}}道题</h4>
-              <p>作答时间: {{item.time}}分钟</p>
-            </div>
           </div>
         </div>
       </myTabPane>
@@ -93,13 +97,18 @@ export default {
 .exam{
   height: 100%;
   .examWrap{
-    padding: 0 36px;
     .item{
-      display: flex;
-      height: 152px;
-      border-bottom: 1px solid rgb(233,233,233);
-      justify-content: space-between;
-      align-items: center;
+      padding: 0 36px;
+      &:active{
+        background: #fafafa;
+      }
+      .content{
+        display: flex;
+        height: 152px;
+        border-bottom: 1px solid rgb(233,233,233);
+        justify-content: space-between;
+        align-items: center;
+      }
       h4{
         font-size: 28px;
         margin-bottom: 8px;
