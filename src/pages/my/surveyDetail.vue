@@ -68,8 +68,10 @@ export default {
     }
   },
   mounted(){
-    let { complete } = this.$route.query
-    this.complete = !!status
+    let { status } = this.$route.query
+    // let bol = complete === 'false'
+    this.complete = Number(status)
+    // console.log(this.complete)
   },
   methods: {
     choose(s,i){
@@ -77,7 +79,6 @@ export default {
     },
     submit(answers){
       if(answers.length !== this.questions.length) return
-      console.log(answers)
       this.$router.replace({name:'submitSuccess'})
     }
   },

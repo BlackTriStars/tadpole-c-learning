@@ -81,7 +81,7 @@ export default {
         {
           icon: 'icon-approval',
           text: '审批任务',
-          name: 'approving'
+          name: 'approvingM'
         },
         {
           icon: 'icon-survey',

@@ -3,7 +3,7 @@
     <myTab :currentName="'可参加'" @afterChange="afterChange">
       <myTabPane :name="'可参加'" :label="'可参加'">
         <div class="surveyWrap">
-          <div class="item" v-for="(item, index) in joinList" :key="index" @click="go(item.id)">
+          <div class="item" v-for="(item, index) in joinList" :key="index" @click="go(item.id, '1')">
             <div class="ct">
               <div class="desc">
                 <h4>{{item.title}}</h4>
@@ -15,7 +15,7 @@
       </myTabPane>
       <myTabPane :name="'已完成'" :label="'已完成'">
         <div class="surveyWrap">
-          <div class="item" v-for="(item, index) in finishedList" :key="index" @click="go(item.id, 'complete')">
+          <div class="item" v-for="(item, index) in finishedList" :key="index" @click="go(item.id, '0')">
           <div class="ct">
             <div class="desc">
               <h4>{{item.title}}</h4>
@@ -98,7 +98,7 @@ export default {
       console.log(name)
     },
     go(id,status){
-      this.$router.replace({name: 'surveyDetail',query:{id,complete: Boolean(status)}})
+      this.$router.replace({name: 'surveyDetail',query:{id,status}})
     }
   }
 }
