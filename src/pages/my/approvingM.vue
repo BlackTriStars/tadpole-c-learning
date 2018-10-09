@@ -134,6 +134,10 @@ export default {
       }
     }
   },
+  mounted() {
+    const {type} = this.$route.params
+    console.log(type)
+  },
   components:{
     myTab,myTabPane,popup
   },

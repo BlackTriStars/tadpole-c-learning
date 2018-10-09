@@ -37,6 +37,7 @@ import studyRecord from "@/pages/my/studyRecord"; //学习记录
 import collect from "@/pages/my/collect"; //我的收藏
 import download from "@/pages/my/download";
 import about from "@/pages/my/about";
+import approvingList from "@/pages/my/approvingList";
 import approving from "@/pages/my/approving";
 import approvingM from "@/pages/my/approvingM";
 import survey from "@/pages/my/survey";
@@ -322,6 +323,14 @@ export default new Router({
         title: "我的审批"
       },
       component: approving
+    },
+    {
+      path: "/approvingList",
+      name: "approvingList",
+      meta: {
+        title: "审批任务"
+      },
+      component: approvingList
     },
     {
       path: "/approvingM",
