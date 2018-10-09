@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?58xmix');
-  src:  url('fonts/icomoon.eot?58xmix#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?58xmix') format('truetype'),
-    url('fonts/icomoon.woff?58xmix') format('woff'),
-    url('fonts/icomoon.svg?58xmix#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?nktp37');
+  src:  url('fonts/icomoon.eot?nktp37#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?nktp37') format('truetype'),
+    url('fonts/icomoon.woff?nktp37') format('woff'),
+    url('fonts/icomoon.svg?nktp37#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,62 +24,70 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-survey:before {
+.icon-leave:before {
   content: "\e900";
+  color: #919191;
 }
-.icon-integration:before {
+.icon-apply:before {
   content: "\e901";
+  color: #919191;
 }
-.icon-bad:before {
+.icon-survey:before {
   content: "\e902";
 }
-.icon-good:before {
+.icon-integration:before {
   content: "\e903";
 }
-.icon-knowledge:before {
+.icon-bad:before {
   content: "\e904";
 }
-.icon-right:before {
+.icon-good:before {
   content: "\e905";
 }
-.icon-user:before {
+.icon-knowledge:before {
   content: "\e906";
 }
-.icon-approval:before {
+.icon-right:before {
   content: "\e907";
 }
-.icon-uniE906:before {
+.icon-user:before {
   content: "\e908";
 }
-.icon-uniE907:before {
+.icon-approval:before {
   content: "\e909";
 }
-.icon-online:before {
+.icon-uniE906:before {
   content: "\e90a";
 }
-.icon-study-record:before {
+.icon-uniE907:before {
   content: "\e90b";
 }
-.icon-collect:before {
+.icon-online:before {
   content: "\e90c";
 }
-.icon-download:before {
+.icon-study-record:before {
   content: "\e90d";
 }
-.icon-password:before {
+.icon-collect:before {
   content: "\e90e";
 }
-.icon-about:before {
+.icon-download:before {
   content: "\e90f";
 }
-.icon-exam:before {
+.icon-password:before {
   content: "\e910";
 }
-.icon-task:before {
+.icon-about:before {
   content: "\e911";
 }
-.icon-left:before {
+.icon-exam:before {
   content: "\e912";
+}
+.icon-task:before {
+  content: "\e913";
+}
+.icon-left:before {
+  content: "\e914";
 }
 .icon-like:before {
   content: "\e91f";
