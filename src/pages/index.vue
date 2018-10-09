@@ -12,19 +12,19 @@
           </div>
           <img src="../assets/index/1.png" alt="">
         </swiper-slide>
-        <swiper-slide class="swipeItem">
-          <div>
-            <span>夏日啤酒运营（初级证书）</span>
-          </div>
-          <img src="../assets/index/2.png" alt="">
+          <swiper-slide class="swipeItem">
+            <div>
+              <span>夏日啤酒运营（初级证书）</span>
+            </div>
+            <img src="../assets/index/2.png" alt="">
         </swiper-slide>
-        <swiper-slide class="swipeItem">
-          <div>
-            <span>夏日啤酒运营（初级证书）</span>
-          </div>
-          <img src="../assets/index/3.png" alt="">
+            <swiper-slide class="swipeItem">
+              <div>
+                <span>夏日啤酒运营（初级证书）</span>
+              </div>
+              <img src="../assets/index/3.png" alt="">
         </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
+              <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </div>
 
@@ -46,118 +46,118 @@
         <span>面授</span>
         <img src="../assets/common/right.png" alt="" @click="$router.push({name:'mianshou'})">
       </div>
-      <div class="main">
-        <div class="item" v-for="(item, index) in task.taskList" :key="index">
-          <img :src="item.imgurl" alt="">
-          <div class="line">
-            {{item.num}}人已报名
-          </div>
-          <div class="neirong">
-            {{item.content}}
-          </div>
-          <div class="date">
-            {{item.date}}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 课程 -->
-    <div class="lesson">
-      <div class="theme">
-        <span>课程</span>
-        <img src="../assets/common/right.png" alt=""  @click="$router.push({name:'online'})">
-      </div>
-      <div class="main">
-        <div class="item" v-for="(item, index) in lesson.lessonList" :key="index">
-          <img :src="item.imgurl" alt="">
-          <div class="line" v-if="item.num">
-            {{item.num}}人已报名
-          </div>
-          <div class="neirong">
-            {{item.content}}
-          </div>
-          <div class="date">
-            {{item.date}}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 考试 -->
-    <div class="test">
-      <div class="theme" @click="$router.push({name: 'testList'})">
-        <span>考试</span>
-        <img src="../assets/common/right.png" alt="">
-      </div>
-      <div class="main">
-        <div class="item" v-for="(item, index) in test.testList" :key="index" @click="$router.push({name: 'testCover'})">
-          <div class="top">
+        <div class="main">
+          <div class="item" v-for="(item, index) in task.taskList" :key="index">
+            <img :src="item.imgurl" alt="">
+            <div class="line">
+              {{item.num}}人已报名
+            </div>
             <div class="neirong">
               {{item.content}}
             </div>
-            <div class="num">
-              共{{item.num}}道题
-            </div>
-          </div>
-          <div class="bottom">
             <div class="date">
               {{item.date}}
             </div>
-            <div class="time">
-              作答时间： {{item.time}}分钟
+          </div>
+        </div>
+      </div>
+
+      <!-- 课程 -->
+      <div class="lesson">
+        <div class="theme">
+          <span>课程</span>
+          <img src="../assets/common/right.png" alt=""  @click="$router.push({name:'online'})">
+      </div>
+          <div class="main">
+            <div class="item" v-for="(item, index) in lesson.lessonList" :key="index">
+              <img :src="item.imgurl" alt="">
+              <div class="line" v-if="item.num">
+                {{item.num}}人已报名
+              </div>
+              <div class="neirong">
+                {{item.content}}
+              </div>
+              <div class="date">
+                {{item.date}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 考试 -->
+        <div class="test">
+          <div class="theme" @click="$router.push({name: 'testList'})">
+            <span>考试</span>
+            <img src="../assets/common/right.png" alt="">
+      </div>
+            <div class="main">
+              <div class="item" v-for="(item, index) in test.testList" :key="index" @click="$router.push({name: 'testCover'})">
+                <div class="top">
+                  <div class="neirong">
+                    {{item.content}}
+                  </div>
+                  <div class="num">
+                    共{{item.num}}道题
+                  </div>
+                </div>
+                <div class="bottom">
+                  <div class="date">
+                    {{item.date}}
+                  </div>
+                  <div class="time">
+                    作答时间： {{item.time}}分钟
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
 
-        </div>
+          <!-- 资讯 -->
+          <div class="lesson">
+            <div class="theme">
+              <span>资讯</span>
+              <img src="../assets/common/right.png" alt=""  @click="$router.push({name:'infoList'})">
       </div>
-    </div>
+              <div class="main">
+                <div class="item" v-for="(item, index) in zixun.zixunList" :key="index">
+                  <img :src="item.imgurl" alt="">
+                  <div class="line" v-if="item.num">
+                    {{item.num}}人已报名
+                  </div>
+                  <div class="neirong">
+                    {{item.content}}
+                  </div>
+                  <div class="date">
+                    {{item.date}}
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    <!-- 资讯 -->
-    <div class="lesson">
-      <div class="theme">
-        <span>资讯</span>
-        <img src="../assets/common/right.png" alt=""  @click="$router.push({name:'infoList'})">
+            <!-- 任务 -->
+            <div class="lesson" style="margin-bottom:20px">
+              <div class="theme">
+                <span>任务</span>
+                <img src="../assets/common/right.png" alt=""  @click="$router.push({name:'task'})">
       </div>
-      <div class="main">
-        <div class="item" v-for="(item, index) in zixun.zixunList" :key="index">
-          <img :src="item.imgurl" alt="">
-          <div class="line" v-if="item.num">
-            {{item.num}}人已报名
-          </div>
-          <div class="neirong">
-            {{item.content}}
-          </div>
-          <div class="date">
-            {{item.date}}
-          </div>
-        </div>
-      </div>
-    </div>
+                <div class="main">
+                  <div class="item" v-for="(item, index) in job.jobList" :key="index">
+                    <img :src="item.imgurl" alt="">
+                    <div class="line" v-if="item.num">
+                      {{item.num}}人已报名
+                    </div>
+                    <div class="neirong">
+                      {{item.content}}
+                    </div>
+                    <div class="date">
+                      {{item.date}}
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    <!-- 任务 -->
-    <div class="lesson" style="margin-bottom:20px">
-      <div class="theme">
-        <span>任务</span>
-        <img src="../assets/common/right.png" alt=""  @click="$router.push({name:'task'})">
-      </div>
-      <div class="main">
-        <div class="item" v-for="(item, index) in job.jobList" :key="index">
-          <img :src="item.imgurl" alt="">
-          <div class="line" v-if="item.num">
-            {{item.num}}人已报名
-          </div>
-          <div class="neirong">
-            {{item.content}}
-          </div>
-          <div class="date">
-            {{item.date}}
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
+            </div>
 
 </template>
 
@@ -184,27 +184,6 @@ export default {
       task: {
         url: "",
         taskList: [
-          {
-            content: "标准普通话培训第三节",
-            imgurl: require("../assets/index/1.png"),
-            num: "218",
-            url: "", //跳转的地址
-            date: "2018.08.05~06.26"
-          },
-          {
-            content: "标准普通话培训第三节",
-            imgurl: require("../assets/index/1.png"),
-            num: "218",
-            url: "", //跳转的地址
-            date: "2018.08.05~06.26"
-          },
-          {
-            content: "标准普通话培训第三节",
-            imgurl: require("../assets/index/1.png"),
-            num: "218",
-            url: "", //跳转的地址
-            date: "2018.08.05~06.26"
-          },
           {
             content: "标准普通话培训第三节",
             imgurl: require("../assets/index/1.png"),
@@ -353,7 +332,7 @@ export default {
       }
     };
   },
- 
+
   components: {
     search
   }
@@ -382,6 +361,7 @@ export default {
 
 .main {
   width: 100%;
+  text-align: left;
 
   .item {
     width: 4.266667rem;

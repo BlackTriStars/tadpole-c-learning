@@ -3,7 +3,7 @@
     <myTab :currentName="'a'" @afterChange="afterChange">
       <myTabPane :name="'a'" :label="'可参加'">
         <div class="taskWrap">
-          <listItem v-for="(item, index) in canJoinList" :key="index"  @click.native="$router.push({name: 'lesson', params: {online: false}})">
+          <listItem v-for="(item, index) in canJoinList" :key="index"  @click.native="$router.push({name: 'mianshouLesson', params: {online: false}})">
             <template slot="left">
               <div class="imgWrap">
                 <img :src="item.img" alt="">

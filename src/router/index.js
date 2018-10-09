@@ -49,6 +49,7 @@ import onlineList from "@/pages/online/list";
 
 //lesson
 import lesson from "@/pages/lesson/lesson";
+import mianshouLesson from "@/pages/lesson/mianshouLesson";
 
 
 //test
@@ -236,7 +237,7 @@ export default new Router({
       path: "/mianshou",
       name: "mianshou",
       meta: {
-        title: "面授"
+        title: "面授培训"
       },
       component: mianshou
     },
@@ -247,6 +248,14 @@ export default new Router({
         title: "课程"
       },
       component: lesson
+    },
+    {
+      path: "/mianshouLesson",
+      name: "mianshouLesson",
+      meta: {
+        title: "面授课程"
+      },
+      component: mianshouLesson
     },
     {
       path: "/userInfo",

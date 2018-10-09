@@ -12,7 +12,7 @@
         <p class="career">职位: {{info.career}}</p>
         <p class="integration">积分: {{info.integration}}</p>
       </div>
-      <div class="more">
+      <div class="more" @click="$router.push({name: 'userInfo'})">
         <i class="icon-left"></i>
       </div>
     </div>

@@ -11,11 +11,11 @@
         <div class="item" v-for="(item, i) in userInfoList" :key="i">
           <span>{{item.name}}</span>
           <div class="input">
-            <p v-if="!item.readOnly">
-              <!-- <input type="text" v-model="userInfo[item.key]"> -->
-              {{userInfo[item.key]}}
+            <p class="readOnly" v-if="!item.readOnly">{{userInfo[item.key]}}</p>
+            <p v-else>
+              <input type="text" v-model="userInfo[item.key]">
+              <!-- {{userInfo[item.key]}} -->
             </p>
-            <p class="readOnly" v-else>{{userInfo[item.key]}}</p>
           </div>
         </div>
       </li>
@@ -30,7 +30,7 @@ export default {
     return {
       userInfoList: [
         {
-          name: '登录民',
+          name: '登录名',
           readOnly: false,
           key: 'username'
         },
@@ -125,6 +125,9 @@ export default {
             text-align: right;
             border: none;
             width: auto;
+            &:focus{
+              outline: none;
+            }
           }
           p{
             font-size:28px;
