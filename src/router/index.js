@@ -35,25 +35,25 @@ import task from "@/pages/my/task"; //我的任务
 import exam from "@/pages/my/exam"; //我的考试
 import studyRecord from "@/pages/my/studyRecord"; //学习记录
 import collect from "@/pages/my/collect"; //我的收藏
-import download from "@/pages/my/download";
-import about from "@/pages/my/about";
+import download from "@/pages/my/download"; //我的下载
+import about from "@/pages/my/about"; //关于
 import approvingList from "@/pages/my/approvingList";
-import approving from "@/pages/my/approving";
-import approvingM from "@/pages/my/approvingM";
-import survey from "@/pages/my/survey";
-import surveyDetail from "@/pages/my/surveyDetail";
-import submitSuccess from "@/pages/my/submitSuccess";
-import mianshou from "@/pages/my/mianshou";
+import approving from "@/pages/my/approving"; //我的审批
+import approvingM from "@/pages/my/approvingM";//审批任务
+import survey from "@/pages/my/survey"; //问卷调查
+import surveyDetail from "@/pages/my/surveyDetail"; //问卷详情
+import submitSuccess from "@/pages/my/submitSuccess"; //提交成功
+import mianshou from "@/pages/my/mianshou"; //面授
 
 //online
-import onlineList from "@/pages/online/list";
+import onlineList from "@/pages/online/list"; //在线页面
 
 //lesson
 import lesson from "@/pages/lesson/lesson";
-import mianshouLesson from "@/pages/lesson/mianshouLesson";
+import mianshouLesson from "@/pages/lesson/mianshouLesson"; //面授课程详情
 
 
-//test
+//test 我的考试
 import testList from "@/pages/test/test-list";
 import testCover from "@/pages/test/test-cover";
 import testDetail from "@/pages/test/test-detail";

@@ -24,6 +24,7 @@
         <mt-tab-item id="lesson-2">课程</mt-tab-item>
         <mt-tab-item id="lesson-3">聊天</mt-tab-item>
       </mt-navbar>
+      <div class="line"></div>
 
       <!-- tab-container -->
       <mt-tab-container v-model="selected">
@@ -92,6 +93,11 @@ export default {
   background: #f3f7ff;
   position: relative;
   padding-bottom: 98px;
+  .line {
+    width: 748px;
+    height: 2px;
+    background: rgba(233, 233, 233, 1);
+  }
   .back {
     position: absolute;
     width: 24px;
@@ -193,6 +199,9 @@ export default {
       height: 88px;
       .mint-tab-item {
         padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .mint-tab-item-label {
         color: #5a5a5a;
