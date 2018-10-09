@@ -14,10 +14,10 @@ export default {
   data() {
     return {
       headerShowList: {
-        exclude: ['index', 'login', 'online', 'lesson','productList']
+        exclude: ['index', 'login', 'online', 'lesson','productList','productInfo','addEdit','cart','cartManage','infoInfo']
       },
       footerShowList: {
-        include: [ 'index', 'my', 'online' ]
+        include: [ 'index', 'my', 'online','mianshou' ]
       },
     };
   },
@@ -42,6 +42,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   height: 100%;
+  transform: translate(0);
 }
 
 /* @import "./styles/fonts/style.css"; */

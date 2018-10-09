@@ -11,13 +11,13 @@
           <img src="../../assets/exchange/jifen.png" alt="">
           <span class="jifenNum">{{jifenNum}}</span>
         </div>
-        <div class="cart" v-if="productNum>0">
+        <div class="cart" v-if="productNum>0"  @click="$router.push({name:'cart'})">
           <img src="../../assets/exchange/cart.png" alt="">
           <span class="cycle">{{productNum}}</span>
         </div>
       </div>
     </div>
-    <div class="item" v-for="(value,index) in itemList" :key="index">
+    <div class="item" v-for="(value,index) in itemList" :key="index"  @click="$router.push({name:'productInfo'})">
       <img :src="value.imgUrl" alt="">
       <div class="info">
         <div class="contetnt">{{value.content}}</div>
@@ -41,7 +41,7 @@ export default {
       productNum: "5",
       itemList: [
         {
-          content: "果蔬脆兑换商品名字限制字数",
+          content: "果蔬脆兑换商品名字限制字数果蔬脆兑换商品名字限制字数",
           imgUrl: require("../../assets/exchange/1.jpg"),
           jifen: "1"
         },
@@ -165,12 +165,17 @@ export default {
   }
   .info {
     margin-left: 30px;
-    .content {
+    .contetnt {
       font-size: 28px;
+      white-space: nowrap;
       font-family: PingFangSC-Regular;
       font-weight: 400;
       color: rgba(51, 51, 51, 1);
       line-height: 40px;
+      width: 368px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
     .jifenNum {
       font-size: 28px;

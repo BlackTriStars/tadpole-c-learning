@@ -108,52 +108,51 @@ export default {
 </script>
 
 <style lang="less">
-.task{
+.task {
   height: 100%;
-  .taskWrap{
+  .taskWrap {
     // padding: 0 44px 0 36px;
-    img{
+    img {
       width: 100%;
       height: 100%;
     }
-    .itemLeft{
-      .imgWrap{
+    .itemLeft {
+      .imgWrap {
         position: relative;
       }
-      .tip{
+      .tip {
         position: absolute;
         width: 100%;
         height: 32px;
         bottom: 0;
         left: 0;
-        background: rgba(0,0,0,.6);
+        background: rgba(0, 0, 0, 0.6);
         color: #fff;
         font-size: 24px;
-        &>span{
+        & > span {
           position: absolute;
           left: 8px;
           top: 50%;
           display: inline-block;
           transform-origin: left;
-          transform:translateY(-50%) scale(.72);
+          transform: translateY(-50%) scale(0.72);
           white-space: nowrap;
-          font-family:PingFangSC-Regular;
+          font-family: PingFangSC-Regular;
         }
       }
     }
-    .itemRight{
+    .itemRight {
       text-align: left;
-      font-size:24px;
-      color:rgba(145,145,145,1);
-      h4{
-        color:rgba(34,34,34,1);
-        font-size:32px;
+      font-size: 24px;
+      color: rgba(145, 145, 145, 1);
+      h4 {
+        color: rgba(34, 34, 34, 1);
+        font-size: 32px;
       }
-      p{
+      p {
         margin-top: 16px;
       }
     }
   }
 }
-
 </style>

@@ -31,11 +31,11 @@
     <!-- 签到和积分 -->
     <div class="show">
       <div class="sign">
-        <img src="../assets/index/sign.png" alt="" srcset="">
+        <img src="../assets/index/sign.png" alt="" srcset="" @click="$router.push({name:'sign'})">
         <span>{{sign}}</span>
       </div>
       <div class="jifen">
-        <img src="../assets/index/jifen.png" alt="">
+        <img src="../assets/index/jifen.png" alt="" @click="$router.push({name:'jifen'})">
         <span>我的积分：{{jifen}}</span>
       </div>
     </div>
@@ -44,7 +44,7 @@
     <div class="task">
       <div class="theme">
         <span>面授</span>
-        <img src="../assets/common/right.png" alt="">
+        <img src="../assets/common/right.png" alt="" @click="$router.push({name:'mianshou'})">
       </div>
       <div class="main">
         <div class="item" v-for="(item, index) in task.taskList" :key="index">
@@ -66,7 +66,7 @@
     <div class="lesson">
       <div class="theme">
         <span>课程</span>
-        <img src="../assets/common/right.png" alt="">
+        <img src="../assets/common/right.png" alt=""  @click="$router.push({name:'online'})">
       </div>
       <div class="main">
         <div class="item" v-for="(item, index) in lesson.lessonList" :key="index">
@@ -86,12 +86,12 @@
 
     <!-- 考试 -->
     <div class="test">
-      <div class="theme">
+      <div class="theme" @click="$router.push({name: 'testList'})">
         <span>考试</span>
         <img src="../assets/common/right.png" alt="">
       </div>
       <div class="main">
-        <div class="item" v-for="(item, index) in test.testList" :key="index">
+        <div class="item" v-for="(item, index) in test.testList" :key="index" @click="$router.push({name: 'testCover'})">
           <div class="top">
             <div class="neirong">
               {{item.content}}
@@ -117,7 +117,7 @@
     <div class="lesson">
       <div class="theme">
         <span>资讯</span>
-        <img src="../assets/common/right.png" alt="">
+        <img src="../assets/common/right.png" alt=""  @click="$router.push({name:'infoList'})">
       </div>
       <div class="main">
         <div class="item" v-for="(item, index) in zixun.zixunList" :key="index">
@@ -139,7 +139,7 @@
     <div class="lesson" style="margin-bottom:20px">
       <div class="theme">
         <span>任务</span>
-        <img src="../assets/common/right.png" alt="">
+        <img src="../assets/common/right.png" alt=""  @click="$router.push({name:'task'})">
       </div>
       <div class="main">
         <div class="item" v-for="(item, index) in job.jobList" :key="index">

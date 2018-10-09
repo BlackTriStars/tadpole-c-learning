@@ -39,13 +39,14 @@
           <button class="signup" v-if="lesson.type == 'offline'">立即报名</button>
         </mt-tab-container-item>
         <mt-tab-container-item id="lesson-2">
-          <ul class="course">
+          <ul class="course" v-if="$route.params.online">
             <li v-for="(list, index) in lesson.course" :key=index >{{list}} <button></button></li>
+          </ul>
+          <ul v-if="!$route.params.online">
+            <lesson-card v-for="(list, index) in lesson.course" :key=index ></lesson-card>
           </ul>
         </mt-tab-container-item>
         <mt-tab-container-item id="lesson-3">
-          <lesson-card></lesson-card>
-          <lesson-card></lesson-card>
           <lesson-card></lesson-card>
         </mt-tab-container-item>
       </mt-tab-container>
@@ -85,10 +86,12 @@ export default {
   }
 };
 </script>
-<style lang="less">
+
+<style lang="less" scoped>
 .lesson {
   background: #f3f7ff;
   position: relative;
+  padding-bottom: 98px;
   .back {
     position: absolute;
     width: 24px;

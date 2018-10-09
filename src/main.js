@@ -13,7 +13,6 @@ import './styles/mint.css'
 import './styles/fonts/style.css'
 import './styles/components.css'
 
-
 Vue.use(MintUI);
 Vue.use(VueScroller)
 Vue.use(VueAwesomeSwiper);

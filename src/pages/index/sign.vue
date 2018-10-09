@@ -88,6 +88,7 @@ export default {
   },
   created() {
     console.log(this.selected, "一开始");
+    // window.location.reload()
   },
   computed:{
     // reverseMessage:function(){
@@ -108,7 +109,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="less">
+<style lang="less" scoped>
 .sign {
   .top {
     height: 552px;

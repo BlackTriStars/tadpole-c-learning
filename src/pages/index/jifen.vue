@@ -95,7 +95,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="less">
+<style lang="less" scoped>
 .top {
   height: 164px;
   display: flex;
@@ -171,7 +171,7 @@ export default {
     border-radius: 50%;
     margin-left: 10px;
   }
-  .rankingImg{
+  .rankingImg {
     width: 58px;
     height: 64px;
     margin: 0;

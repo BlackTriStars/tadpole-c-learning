@@ -1,51 +1,77 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-
+import Vue from "vue";
+import Router from "vue-router";
 
 // 主页
-import index from "@/pages/index";
+import index from "@/pages/index"; //首页
 import saomiao from "@/pages/index/saomiao"; //扫描二维码
 import sign from "@/pages/index/sign"; //每日签到
 import jifen from "@/pages/index/jifen"; //积分榜
 import news from "@/pages/index/news"; //消息
 import newsInfo from "@/pages/index/newsInfo"; //消息详情
 
-
 //  积分兑换
-import productList from "@/pages/exchange/productList";
-
+import productList from "@/pages/exchange/productList"; //积分兑换商品列表
+import productInfo from "@/pages/exchange/productInfo"; //商品详情
+import addManage from "@/pages/exchange/addManage"; //地址管理
+import addEdit from "@/pages/exchange/addEdit"; // 地址编辑
+import cart from "@/pages/exchange/cart"; // 购物车
+import cartManage from "@/pages/exchange/cartManage"; // 购物车编辑
+import myExchange from "@/pages/exchange/myExchange"; // 我的兑换
 //  注册登录
-import loginMain from "@/pages/loginRegister/index";
-import firstLogin from "@/pages/loginRegister/firstLogin";
+import loginMain from "@/pages/loginRegister/index"; //注册登录主页
+import firstLogin from "@/pages/loginRegister/firstLogin"; //首次登录绑定页面
 import login from "@/pages/loginRegister/login";
-import resetPassword from "@/pages/loginRegister/resetPassword";
-import changePassword from "@/pages/loginRegister/changePassword";
+import resetPassword from "@/pages/loginRegister/resetPassword"; //重置密码
+import changePassword from "@/pages/loginRegister/changePassword"; //修改密码页面
+
+// 资讯
+import infoList from "@/pages/information/infoList"; //资讯页面
+import infoInfo from "@/pages/information/infoInfo"; //资讯详情页
 
 //  我的
-import my from '@/pages/my/index'
-import userInfo from '@/pages/my/userInfo'
-import task from '@/pages/my/task'
-import exam from '@/pages/my/exam'
-import studyRecord from '@/pages/my/studyRecord'
-import collect from '@/pages/my/collect'
-import download from '@/pages/my/download'
-import about from '@/pages/my/about'
-import approving from '@/pages/my/approving'
-import approvingM from '@/pages/my/approvingM'
-
+import my from "@/pages/my/index"; //我的页面
+import userInfo from "@/pages/my/userInfo"; //个人信息页面
+import task from "@/pages/my/task"; //我的任务
+import exam from "@/pages/my/exam"; //我的考试
+import studyRecord from "@/pages/my/studyRecord"; //学习记录
+import collect from "@/pages/my/collect"; //我的收藏
+import download from "@/pages/my/download";
+import about from "@/pages/my/about";
+import approving from "@/pages/my/approving";
+import approvingM from "@/pages/my/approvingM";
+import survey from "@/pages/my/survey";
+import surveyDetail from "@/pages/my/surveyDetail";
+import submitSuccess from "@/pages/my/submitSuccess";
+import mianshou from "@/pages/my/mianshou";
 
 //online
 import onlineList from "@/pages/online/list";
 
 //lesson
-import lesson from '@/pages/lesson/lesson'
+import lesson from "@/pages/lesson/lesson";
 
-Vue.use(Router)
+
+//test
+import testList from "@/pages/test/test-list";
+import testCover from "@/pages/test/test-cover";
+import testDetail from "@/pages/test/test-detail";
+import testResult from "@/pages/test/test-result";
+import testHistory from "@/pages/test/test-history";
+
+Vue.use(Router);
 
 export default new Router({
   routes: [{
-      path: '/',
-      name: 'index',
+      path: "/",
+      name: "index",
+      meta: {
+        title: "首页"
+      },
+      component: index
+    },
+    {
+      path: "/index",
+      name: "index",
       meta: {
         title: "首页"
       },
@@ -74,7 +100,8 @@ export default new Router({
         title: "积分榜"
       },
       component: jifen
-    }, {
+    },
+    {
       path: "/news",
       name: "news",
       meta: {
@@ -99,12 +126,64 @@ export default new Router({
       component: productList
     },
     {
-      path: '/login&register',
-      redirect: '/login',
+      path: "/productInfo",
+      name: "productInfo",
+      component: productInfo
+    },
+    {
+      path: "/addManage",
+      name: "addManage",
+      meta: {
+        title: "地址管理"
+      },
+      component: addManage
+    },
+    {
+      path: "/addEdit",
+      name: "addEdit",
+      meta: {
+        title: "地址管理"
+      },
+      component: addEdit
+    },
+    {
+      path: "/cart",
+      name: "cart",
+      component: cart
+    },
+    {
+      path: "/cartManage",
+      name: "cartManage",
+      component: cartManage
+    },
+    {
+      path: "/myExchange",
+      name: "myExchange",
+      meta: {
+        title: "我的兑换"
+      },
+      component: myExchange
+    },
+    {
+      path: "/infoList",
+      name: "infoList",
+      meta: {
+        title: "资讯"
+      },
+      component: infoList
+    },
+    {
+      path: "/infoInfo",
+      name: "infoInfo",
+      component: infoInfo
+    },
+    {
+      path: "/login&register",
+      redirect: "/login",
       component: loginMain,
       children: [{
-          path: '/firstLogin',
-          name: 'firstLogin',
+          path: "/firstLogin",
+          name: "firstLogin",
           meta: {
             title: "首次登录绑定"
           },
@@ -154,16 +233,24 @@ export default new Router({
       component: onlineList
     },
     {
-      path: '/lesson/:id',
-      name: 'lesson',
+      path: "/mianshou",
+      name: "mianshou",
       meta: {
-        title: '课程'
+        title: "面授"
+      },
+      component: mianshou
+    },
+    {
+      path: "/lesson/:id",
+      name: "lesson",
+      meta: {
+        title: "课程"
       },
       component: lesson
     },
     {
-      path: '/userInfo',
-      name: 'userInfo',
+      path: "/userInfo",
+      name: "userInfo",
       meta: {
         title: "个人信息",
         btn: "保存"
@@ -178,53 +265,126 @@ export default new Router({
       },
       component: task
     },
+
     {
-      path: '/exam',
-      name: 'exam',
+      path: "/exam",
+      name: "exam",
       meta: {
-        title: '我的考试',
+        title: "我的考试"
       },
       component: exam
     },
     {
-      path: '/studyRecord',
-      name: 'studyRecord',
+      path: "/studyRecord",
+      name: "studyRecord",
       meta: {
-        title: '学习记录',
+        title: "学习记录"
       },
       component: studyRecord
     },
     {
-      path: '/collect',
-      name: 'collect',
+      path: "/collect",
+      name: "collect",
       meta: {
-        title: '我的收藏',
+        title: "我的收藏"
       },
       component: collect
     },
     {
-      path: '/download',
-      name: 'download',
+      path: "/download",
+      name: "download",
       meta: {
-        title: '我的下载',
+        title: "我的下载"
       },
       component: download
     },
     {
-      path: '/about',
-      name: 'about',
+      path: "/about",
+      name: "about",
       meta: {
-        title: '关于',
+        title: "关于"
       },
       component: about
     },
     {
-      path: '/approving',
-      name: 'approving',
+      path: "/approving",
+      name: "approving",
       meta: {
-        title: '我的审批',
+        title: "我的审批"
+      },
+      component: approving
+    },
+    {
+      path: "/approvingM",
+      name: "approvingM",
+      meta: {
+        title: "我的审批"
       },
       component: approvingM
+    },
+    {
+      path: "/survey",
+      name: "survey",
+      meta: {
+        title: "问卷调查"
+      },
+      component: survey
+    },
+    {
+      path: "/surveyDetail",
+      name: "surveyDetail",
+      meta: {
+        title: "问卷详情"
+      },
+      component: surveyDetail
+    },
+    {
+      path: "/submitSuccess",
+      name: "submitSuccess",
+      meta: {
+        title: "提交成功"
+      },
+      component: submitSuccess
+    },
+    {
+      path: "/test-list",
+      name: "testList",
+      meta: {
+        title: "我的考试"
+      },
+      component: testList
+    },
+    {
+      path: "/test-cover",
+      name: "testCover",
+      meta: {
+        title: "考试名称"
+      },
+      component: testCover
+    },
+    {
+      path: "/test-detail",
+      name: "testDetail",
+      meta: {
+        title: "考试"
+      },
+      component: testDetail
+    },
+    {
+      path: "/test-result",
+      name: "testResult",
+      meta: {
+        title: "标准普通话考试"
+      },
+      component: testResult
+    },
+    {
+      path: "/test-history",
+      name: "testHistory",
+      meta: {
+        title: "标准普通话考试历史记录"
+      },
+      component: testHistory
     }
   ]
 });
