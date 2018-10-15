@@ -1,7 +1,7 @@
 <template>
   <div class="lesson">
     <i class="back" @click="$router.go(-1)"></i>
-    <div class="media">
+    <div class="media" :style="{backgroundImage: 'url(' + lesson.backgroundImage + ')'}">
       <div class="tools">
         <div class="caption">
           <h3>{{lesson.title}}</h3>
@@ -9,7 +9,7 @@
         </div>
         <div class="buttons">
           <button class="share"></button>
-          <button class="love"></button>
+          <i class="icon-love" :class="{loved: lesson.loved}" @click="lesson.loved = !lesson.loved"></i>
           <button class="download"></button>
         </div>
       </div>
@@ -77,7 +77,9 @@ export default {
           "跟大神学时间管理课程3",
           "跟大神学时间管理课程4"
         ],
-        type: "offline"
+        type: "offline",
+        loved: true,
+        backgroundImage: require("../../assets/index/2.png")
       }
     };
   },
@@ -111,7 +113,7 @@ export default {
   .media {
     height: 500px;
     width: 100%;
-    background: url("../../assets/lesson/lesson-bg.png") 100% 100% / cover
+    background: 100% 100% / cover
       no-repeat;
     position: relative;
     .tools {
@@ -158,10 +160,19 @@ export default {
           background: url("../../assets/lesson/share.png") 0 0 / contain
             no-repeat;
         }
-        .love {
-          background: url("../../assets/lesson/love.png") 0 0 / contain
-            no-repeat;
+        i {
+          width: 40px;
+          height: 40px;
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 50px;
         }
+        i.loved.icon-love {
+          color: red;
+        }
+
       }
     }
   }
