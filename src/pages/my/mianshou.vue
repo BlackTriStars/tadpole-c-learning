@@ -61,7 +61,7 @@ export default {
         {
           img: require('../../assets/index/task.png'),
           title: '标准普通话培训第三节',
-          text: '我们的文案辅助解释，该课程都有些…',
+          text: '我们的文案辅助解我们的文案辅助解释，该课程都有些…我们的文案辅助解释，该课程都有些…我们的文案辅助解释，该课程都有些…',
           time: '2018.08.05～06.26',
           join: '218'
         },{
@@ -119,6 +119,8 @@ export default {
     .itemLeft {
       .imgWrap {
         position: relative;
+        width: 240px;
+        height: 160px;
       }
       .tip {
         position: absolute;
@@ -145,6 +147,7 @@ export default {
       text-align: left;
       font-size: 24px;
       color: rgba(145, 145, 145, 1);
+      width: 402px;
       h4 {
         color: rgba(34, 34, 34, 1);
         font-size: 32px;
