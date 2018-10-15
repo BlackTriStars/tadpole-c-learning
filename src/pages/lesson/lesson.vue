@@ -113,7 +113,7 @@ export default {
   .media {
     height: 500px;
     width: 100%;
-    background: 100% 100% / cover
+    background: 50% 50% / cover
       no-repeat;
     position: relative;
     .tools {
