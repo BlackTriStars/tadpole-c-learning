@@ -70,7 +70,7 @@ export default {
         teacher: "snake",
         time: "1",
         detail:
-          "这里是详细内容图文编辑区域！！！ 当你初识这世间，你带着两眼的清澈，迫不及待的，遥望着远方的五彩缤纷！当你经过这世间，你带着两眼的冰冷，漫不经心的，漠视你身边的万紫千红！有人说你变了，你却抱怨这个世界变了！ 你曾年少轻狂，不懂时光，不信岁月无常！以为自己坚定一切，就坚守一切！却不知，在往后的岁月里，你当初所有的壮志豪言都成了无能为力。 你曾以为自己天下无敌，可是后来却在变幻莫测的岁月里败给了自己；你曾以为自己万里挑一，可是后来却在现实的残酷中沦为了倒数第一！或许我们都一样，都曾在看轻岁月的日子里看重了自己，在看重时间的日子里才认清了自己。",
+          "这里是详细内容图文编辑区域！！！ ",
         course: [
           "跟大神学时间管理课程1",
           "跟大神学时间管理课程2",
@@ -94,7 +94,7 @@ export default {
 .lesson {
   background: #f3f7ff;
   position: relative;
-  padding-bottom: 98px;
+  // padding-bottom: 98px;
   .line {
     width: 748px;
     height: 2px;
@@ -113,8 +113,7 @@ export default {
   .media {
     height: 500px;
     width: 100%;
-    background: 50% 50% / cover
-      no-repeat;
+    background: 50% 50% / cover no-repeat;
     position: relative;
     .tools {
       background: rgba(0, 0, 0, 0.4);
@@ -172,7 +171,6 @@ export default {
         i.loved.icon-love {
           color: red;
         }
-
       }
     }
   }
@@ -257,6 +255,7 @@ export default {
       text-align: left;
       background-color: #fff;
       margin-top: 20px;
+      min-height: 280px;
     }
     .signup {
       display: block;
@@ -278,6 +277,7 @@ export default {
     .course {
       padding: 0 36px;
       background-color: #fff;
+      // min-height: 300px;
       li {
         height: 108px;
         border-bottom: 1px solid #eeee;
