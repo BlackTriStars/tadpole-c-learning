@@ -59,6 +59,7 @@ import testCover from "@/pages/test/test-cover";
 import testDetail from "@/pages/test/test-detail";
 import testResult from "@/pages/test/test-result";
 import testHistory from "@/pages/test/test-history";
+import testAnswer from "@/pages/test/test-answer";
 
 Vue.use(Router);
 
@@ -403,6 +404,14 @@ export default new Router({
         title: "标准普通话考试历史记录"
       },
       component: testHistory
+    },
+    {
+      path: "/test-answer",
+      name: "testAnswer",
+      meta: {
+        title: "答案详情"
+      },
+      component: testAnswer
     }
   ]
 });

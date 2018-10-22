@@ -28,7 +28,7 @@
           </ul>
         </div>
         <div class="buttons" v-if="!result.pass">
-          <button @click="$router.push({name:'testDetail',query:{review:true}})">答题详情</button>
+          <button @click="$router.push({name:'testAnswer'})">答题详情</button>
           <button @click="$router.push({name:'testCover'})">重新答题</button>
         </div>
     </div>
