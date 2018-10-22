@@ -1,5 +1,5 @@
 @<template>
-  <div class="surveyDetail" :class="{not:!complete}">
+  <div class="surveyDetail" :class="{not:complete}">
     <div class="content">
       <div class="question">
         <h4>{{notes.title}}</h4>
@@ -7,15 +7,41 @@
         <p class="tip">{{notes.tip}}</p>
       </div>
       <div class="questionItem" v-for="(item,index) in questions" :key="index">
-        <h4>{{index + 1}}、{{item.question}}</h4>
-        <div class="selection">
-          <div class="si" v-for="(s,i) in item.options" :key="i" @click="choose(s,index)">
-            <p><i class="qIndex" :class="{active: s === item.current}"><span>{{i | order}}</span></i>{{s}}</p>
+        <!-- //  单选 -->
+        <div class="singleChoice" v-if="item.type === 0">
+          <h4>{{index + 1}}、{{item.question}}</h4>
+          <div class="selection">
+            <div class="si" v-for="(s,i) in item.options" :key="i" @click="choose(s,index,item.type)">
+              <p><i class="qIndex" :class="{active: s === item.current}"><span>{{i | order}}</span></i>{{s}}</p>
+            </div>
+          </div>
+        </div>
+        <!-- // 多选 -->
+        <div class="mutipleChoice" v-if="item.type === 1">
+          <h4>{{index + 1}}、{{item.question}}</h4>
+          <div class="selection">
+            <div class="si" v-for="(s,i) in item.options" :key="i" @click="choose(s,index,item.type)">
+              <p><i class="qIndex" :class="{active: item.current.includes(s)}"><span>{{i | order}}</span></i>{{s}}</p>
+            </div>
+          </div>
+        </div>
+        <!-- // 填空 -->
+        <div class="filling" v-if="item.type === 2">
+          <h4>{{index + 1}}、{{item.question}}</h4>
+          <div class="fillingContent">
+            <input type="text" @input="fillTxt(index)">
+          </div>
+        </div>
+        <!-- // 问答 -->
+        <div class="FAQ" v-if="item.type === 3">
+          <h4>{{index + 1}}、{{item.question}}</h4>
+          <div class="fillingContent">
+            <textarea @input="fillTxt(index)"></textarea>
           </div>
         </div>
       </div>
     </div>
-    <div class="button" :class="{canSubmit: answers.length === questions.length}" @click="submit(answers)" v-if="complete">
+    <div class="button" :class="{canSubmit: answers.length === questions.length && answers.filter(v=>Array.isArray(v).length )}" @click="submit(answers)" v-if="complete">
       提交问卷
     </div>
   </div>
@@ -34,12 +60,26 @@ export default {
         {
           question: '我是问题题目，如何超过两行时候需要折行显示具体详细。',
           options: ['正确','错误'],
-          current: null
+          current: null,
+          type: 0 // 单选
+        },
+        {
+          question: '我是最后一题，如何超过两行时候需要折行显示具体详细。',
+          options: ['111','222','333','444'],
+          current: [],
+          type: 1 //  多选
+        },
+        {
+          question: '我是最后一题，如何超过两行时候需要折行显示具体详细。',
+          // options: ['正确','错误'],
+          current: null,
+          type: 2 //  填空
         },
         {
           question: '我是最后一题，如何超过两行时候需要折行显示具体详细。',
           options: ['正确','错误'],
-          current: null
+          current: null,
+          type: 3 //  问答
         },
       ],
       answers: [],
@@ -74,12 +114,25 @@ export default {
     // console.log(this.complete)
   },
   methods: {
-    choose(s,i){
-      this.questions[i].current = s
+    choose(s,i,t){
+      if(t){
+        const currentAnswer = this.questions[i].current
+        if(currentAnswer.includes(s)){
+          currentAnswer.splice(currentAnswer.indexOf(s),1)
+        }else{
+          currentAnswer.push(s)
+        }
+      }else{
+        console.log('ssss')
+        this.questions[i].current = s
+      }
     },
     submit(answers){
       if(answers.length !== this.questions.length) return
       this.$router.replace({name:'submitSuccess'})
+    },
+    fillTxt(index){
+      this.questions[index].current = window.event.target.value
     }
   },
   watch:{
@@ -128,39 +181,49 @@ export default {
     background: #fff;
     text-align: left;
     margin-top: 20px;
-    & > h4{
-      font-size:36px;
-      font-weight:400;
-      color:rgba(90,90,90,1);
-      line-height: 72px;
-    }
-    .selection{
-      margin-top: 40px;
-      .si{
-        p{
+    &>div{
+      & > h4{
+        font-size:36px;
+        font-weight:400;
+        color:rgba(90,90,90,1);
+        line-height: 72px;
+      }
+      .selection{
+        margin-top: 40px;
+        .si{
+          p{
+            display: flex;
+            align-items: center;
+          }
+          & + .si{
+            margin-top: 60px;
+          }
+        }
+        .qIndex{
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          box-shadow:0px 2px 8px 0px rgba(0,0,0,0.2);
           display: flex;
+          justify-content: center;
           align-items: center;
-        }
-        & + .si{
-          margin-top: 60px;
-        }
-      }
-      .qIndex{
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        box-shadow:0px 2px 8px 0px rgba(0,0,0,0.2);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 32px;
-        color: #5A5A5A;
-        margin-right: 40px;
-        &.active{
-          color: #fff;
-          background:rgba(49,113,246,1);
+          font-size: 32px;
+          color: #5A5A5A;
+          margin-right: 40px;
+          &.active{
+            color: #fff;
+            background:rgba(49,113,246,1);
+          }
         }
       }
+      .fillingContent{
+
+      }
+        textarea{
+          width: 100%;
+          height: 200px;
+          resize: none;
+        }
     }
   }
   .button{
