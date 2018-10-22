@@ -1,5 +1,5 @@
 @<template>
-  <div class="surveyDetail" :class="{not:complete}">
+  <div class="surveyDetail" :class="{not:unfinish}">
     <div class="content">
       <div class="question">
         <h4>{{notes.title}}</h4>
@@ -29,19 +29,21 @@
         <div class="filling" v-if="item.type === 2">
           <h4>{{index + 1}}、{{item.question}}</h4>
           <div class="fillingContent">
-            <input type="text" @input="fillTxt(index)">
+            <input type="text" @input="fillTxt(index)" v-if="unfinish">
+            <p v-text="item.current" v-else></p>
           </div>
         </div>
         <!-- // 问答 -->
         <div class="FAQ" v-if="item.type === 3">
           <h4>{{index + 1}}、{{item.question}}</h4>
           <div class="fillingContent">
-            <textarea @input="fillTxt(index)"></textarea>
+            <textarea @input="fillTxt(index)" v-if="unfinish"></textarea>
+            <p v-text="item.current" v-else></p>
           </div>
         </div>
       </div>
     </div>
-    <div class="button" :class="{canSubmit: answers.length === questions.length && answers.filter(v=>Array.isArray(v).length )}" @click="submit(answers)" v-if="complete">
+    <div class="button" :class="{canSubmit: answers.length === questions.length && answers.filter(v=>Array.isArray(v).length )}" @click="submit(answers)" v-if="unfinish">
       提交问卷
     </div>
   </div>
@@ -83,7 +85,7 @@ export default {
         },
       ],
       answers: [],
-      complete: false
+      unfinish: false
     }
   },
   filters:{
@@ -109,9 +111,9 @@ export default {
   },
   mounted(){
     let { status } = this.$route.query
-    // let bol = complete === 'false'
-    this.complete = Number(status)
-    // console.log(this.complete)
+    // let bol = unfinish === 'false'
+    this.unfinish = Number(status)
+    // console.log(this.unfinish)
   },
   methods: {
     choose(s,i,t){
